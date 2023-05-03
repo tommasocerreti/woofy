@@ -1,0 +1,39 @@
+body{
+  background-image: url('../immagini/sfondo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Stile del menu */
+nav {
+  background-color: #f1f1f1;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 3px;
+  padding: 0;
+  display: inline-block;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #ddd;
+}
+

@@ -1,0 +1,151 @@
+body{
+  background-image: url('immagini/sfondo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Stile del menu */
+nav {
+  background-color: #f1f1f1;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 3px;
+  padding: 0;
+  display: inline-block;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #ddd;
+}
+
+/* Stile del contenuto */
+.content {
+  text-align: center;
+  margin-top: 50px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.content h1 {
+  font-size: 72px;
+  color: #fff;
+}
+
+.content .slogan {
+  font-size: 24px;
+  color: #fff;
+}
+
+/* Stile del login e della registrazione */
+.login {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #fefefe;
+  margin: 7% auto;
+  padding: 100px;
+  border: 1px solid #fff;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.login h1 {
+  margin-top: -80px;
+}
+
+.login h2 {
+  margin-top: -40px;
+  font-size: 20px;
+}
+
+.login input {
+  display: block;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  margin-top: 5px;
+  width: 300px;
+}
+
+.login button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  margin-bottom: -120px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  font-size: larger;
+} 
+
+.login-buttons-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.login-buttons-area button:first-child{
+  margin-top: 35px;
+  margin-right: 150px;
+  background-color: #fff;
+  color: #333;
+  width:max-content;
+}
+
+.register-buttons-area{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -10px;
+}
+
+.register-buttons-area button:first-child {
+  margin-top: 35px;
+  margin-right: 250px;
+  background-color: #fff;
+  color: #333;
+  width:max-content;
+}
+
+.pick-profession-area{
+  margin-top: 35px;
+}
+
+select {
+  width: max-content;
+  appearance: none;
+  padding: 8px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
+}
