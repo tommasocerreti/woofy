@@ -7,16 +7,21 @@
 <body>
   <!-- Contenuto della pagina di registrazione -->
   <div class="register">
+
     <h1>Woofy</h1>
     <h2>Accedi alla piattaforma</h2>
+
     <form>
+
       <input type="text" placeholder="Nome">
       <input type="text" placeholder="Cognome">
       <input type="text" placeholder="Email">
       <input type="password" placeholder="Password">
       <input type="conferma_password" placeholder="Conferma Password">
+
       <div class="pick-profession-area">
         <h3>Sei un professionista?</h3>
+
         <select>
           <option disabled selected>Seleziona la tua professione</option>
           <option value="opzione1">Medico</option>
@@ -25,19 +30,29 @@
           <option value="opzione5">Notaio</option>
           <option value="opzione6">Commercialista</option>
         </select>
+
       </div>
+
       <input type="tax code" placeholder="Codice Fiscale">
       <input type="city" placeholder="Citta'">
-      <input type="address" placeholder="indirizzo">
-      <input type="cap" placeholder="CAP">
+
+      <div class="indirizzo-cap">
+        <input type="address" placeholder="indirizzo">
+        <input type="cap" placeholder="CAP">
+      </div>
+
     </form>
+
     <div class="register-buttons-area">
       <a href="../login/login.html">
         <button type="submit">Indietro</button>
       </a>
       <button type="submit">Continua</button>
     </div>
+
   </div>
+
   <script src="script.js"></script>
+
 </body>
 </html>

@@ -20,6 +20,7 @@ body{
   justify-content: center;
   align-items: center;
   gap: 30px;
+  /* margin-top: 10px; */
 }
 
 .register h1 {
@@ -41,7 +42,10 @@ body{
   margin-top: 5px;
   width: 300px;
 }
-
+.indirizzo-cap input {
+  display: flex;
+  margin-right: 10px;
+}
 .register button {
   display: block;
   margin-bottom: 10px;
