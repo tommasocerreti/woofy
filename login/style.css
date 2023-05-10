@@ -37,7 +37,7 @@ nav a:hover {
   background-color: #ddd;
 }
 
-/* Stile del login e della registrazione */
+/* Stile del login */
 .login {
   background-color: rgba(0, 0, 0, 0.5);
   font-family: "Helvetica Neue", Arial, sans-serif;
@@ -52,7 +52,7 @@ nav a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
 }
 
 .login h1 {
@@ -60,28 +60,26 @@ nav a:hover {
 }
 
 .login h2 {
-  margin-top: -40px;
+  margin-top: -30px;
   font-size: 20px;
 }
 
 .login input {
   display: block;
-  margin-bottom: 20px;
   padding: 12px;
   border: 2px solid #333;
   border-radius: 5px;
-  margin-bottom: 30px;
   margin-top: 5px;
+  margin-bottom: 10px;
   width: 300px;
 }
 
 .login button {
   display: block;
-  margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #888;
   border-radius: 5px;
-  margin-bottom: -120px;
+  margin-bottom: -110px;
   background-color: #333;
   color: #fff;
   border: none;
@@ -92,7 +90,6 @@ nav a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
 }
 
 .login-buttons-area button:first-child{
@@ -102,3 +99,4 @@ nav a:hover {
   color: #333;
   width:max-content;
 }
+
