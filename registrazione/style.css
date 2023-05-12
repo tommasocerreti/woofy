@@ -1,7 +1,5 @@
 body{
-  background-image: url('../immagini/sfondo.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: radial-gradient(circle, #0e214a, #000436);
 }
 
 /* Stile della registrazione */
