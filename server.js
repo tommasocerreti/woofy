@@ -1,8 +1,19 @@
 const express = require('express');
 const app = express();
 
-app.use(express.static('public/index'));
+const path = require('path');
+const nodemailer = require('nodemailer');
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/public/home/home.html');
+});
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.set('port', 3000);
 
 app.listen(3000, function () {
-  console.log('Server in ascolto sulla porta 3000!');
+  console.log('Server listening on port ' + app.get('port'));
 });
+
+
