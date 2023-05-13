@@ -66,9 +66,11 @@ nav a:hover {
 
 /* stile del box informativo */
 .info-box {
-  position:relative;
+  top: -100px;
+  position: relative;
   display: flex;
   align-items: center;
+  border-radius: 10px;
   justify-content: center;
   flex-wrap: wrap;
   width: 50%;
@@ -79,13 +81,13 @@ nav a:hover {
 }
 
 .info-box img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
+  position: relative;
+  top: 20.5px;
+  right: 0px;
+  width: 157.02px;
   height: auto;
-  float:right; 
-  margin: 0 0 0 20px;
+  float: right;
+  margin: 0 0 0 0px;
 }
 
 .info-box .info-text {
@@ -127,7 +129,7 @@ nav a:hover {
 }
 
 .my-button:hover {
-  transform: scale(1.5);
+  transform: scale(1.15);
 }
 
 .my-button img {
