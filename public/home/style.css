@@ -108,13 +108,11 @@ nav a:hover {
 
 /* Stile dei bottoni professioni */
 .button-container {
-  display: flex;
+  display: center;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 40px;
-  margin-right: 40px;
 }
 
 .my-button {
