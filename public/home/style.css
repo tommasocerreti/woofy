@@ -64,20 +64,24 @@ body {
 
 /* Stile dei bottoni professioni */
 .button-container {
-  display: center;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-left: 3%;
 }
 
 .my-button {
+  background-color: #ffffff;
   display: inline-block;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3); /* Aggiunta dell'ombra */
+  border-radius: 8px; /* Aggiunta dei bordi arrotondati */
   transition: all 0.3s ease-in-out;
-  width: 90px;
-  height: 90px;
+  width: 125px;
+  height: 125px;
   margin-right: 50px;
   margin-bottom: 30px;
 }
@@ -90,6 +94,16 @@ body {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.my-button span {
+  position: absolute;
+  bottom: -32px;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 .my-button:before {
@@ -111,4 +125,5 @@ body {
 .button-row {
   margin-bottom: 30px;
 }
+
 /*Fine Stile dei bottoni professioni */
