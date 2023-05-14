@@ -104,3 +104,7 @@ nav a:hover {
   font-size: 25px;
   margin-top: 80px;
 }
+/* stile del box scelta orari */
+select {
+  width: 5%;
+}
