@@ -44,3 +44,63 @@ nav a {
 nav a:hover {
   background-position: left bottom;
 }
+
+	/* stile dei box */
+  .box {
+    width: 45%;
+    padding: 20px;
+    margin: 20px 2.5%;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    background-color: #fefefe;
+    border-radius: 10px;
+  }
+  /* stile dei pulsanti */
+  button {
+  padding: 17px;
+  margin: 15px;
+  background-color: #333;
+  border: 1px solid #888;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  /* stile del calendario */
+  #calendar {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ccc;
+  }
+  /* stile della lista delle prenotazioni */
+  #last-bookings ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  /* stile delle singole prenotazioni */
+  .booking {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+  }
+
+
+/* stile dei box ora */
+.box-ora {
+  width: 80px;
+  margin: 0 5px;
+  font-size: 16px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+/* stile del paragrafo degli orari */
+.orari p {
+  font-size: 25px;
+  margin-top: 80px;
+}
