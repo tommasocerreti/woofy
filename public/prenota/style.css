@@ -4,6 +4,59 @@ body {
   font-family: Arial, sans-serif;
   background-image: radial-gradient(circle, #1c3c82, #000436);
 }
+
+/* STILE DELLA BARRA DEL MENU */
+.nav-item {
+  font-weight: bold;
+  position: relative;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: white;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+  transform: scaleX(0.5);
+}
+
+.scrolled {
+  background-color: #000436;
+}
+
+
+
+
+
+
+
+
+
+
+/* STILE DELLA PAGINA */
+.content {
+  text-align: center;
+  margin-top: 50px;
+  height:200px;  /*distanza tra titolo e sottostante */
+}
+
+.content h1 {
+  font-size: 72px;
+  color: #fff;
+}
+
+.content .slogan {
+  font-size: 24px;
+  color: #fff;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -101,4 +154,58 @@ body {
   border-radius: 5px;
   cursor: pointer;
   margin-left: 150px;
+}
+
+
+
+
+
+
+
+
+/* STILE DEL FOOTER */
+footer {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: transparent;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+footer ul li {
+  margin: 0 10px;
+}
+
+footer ul li:first-child {
+  margin-left: 0;
+}
+
+footer ul li:last-child {
+  margin-right: 0;
+}
+
+footer ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  color: #ffffff;
 }
