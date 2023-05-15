@@ -3,6 +3,9 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
+
+
+
 /* STILE DELLA BARRA DEL MENU */
 .nav-item {
   font-weight: bold;
@@ -17,7 +20,7 @@ body {
   width: 0;
   height: 3px;
   background-color: white;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.5s ease-in-out;
 }
 
 .nav-item:hover::after {
@@ -28,6 +31,8 @@ body {
 .scrolled {
   background-color: #000436;
 }
+
+
 
 
 
