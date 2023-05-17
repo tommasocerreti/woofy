@@ -34,129 +34,84 @@
       <p class="slogan">Gestisci qui le tue prenotazioni</p>
     </div>
     
-      <!-- primo div -->
-      <div>
-        <!-- box 1 -->
-        <div class="box" style="width: 60%; height: 344px;">
-          <h2>Scegli i giorni e gli orari in cui sei disponibile</h2>
-          <div class="giorni">
-            <button>Lunedì</button>
-            <button>Martedì</button>
-            <button>Mercoledì</button>
-            <button>Giovedì</button>
-            <button>Venerdì</button>
-            <button>Sabato</button>
-            <button>Domenica</button>
+
+    <!-- TIME BOX -->
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-4">
+        <div class="container bg-white custom-rounded">
+          <h3 class="d-flex justify-content-center align-items-center">Seleziona i giorni della settimana:</h3>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-primary btn-lg custom-btn">Lun</button>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary btn-lg custom-btn">Mar</button>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary btn-lg custom-btn">Mer</button>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary btn-lg custom-btn">Gio</button>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary btn-lg custom-btn">Ven</button>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary btn-lg custom-btn">Sab</button>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary btn-lg custom-btn">Dom</button>
+            </div>
           </div>
-          <div class="orari">
-            <p>Dalle 
-                <select>
-                  <option disabled selected>-  -</option>
-                  <option value="08:00">08:00</option>
-                  <option value="09:00">09:00</option>
-                  <option value="10:00">10:00</option>
-                  <option value="11:00">11:00</option>
-                  <option value="12:00">12:00</option>
-                  <option value="13:00">13:00</option>
-                  <option value="14:00">14:00</option>
-                  <option value="15:00">15:00</option>
-                  <option value="16:00">16:00</option>
-                  <option value="17:00">17:00</option>
-                  <option value="18:00">18:00</option>
-                  <option value="19:00">19:00</option>
-                  <option value="20:00">20:00</option>
-                </select> 
-              alle 
-                <select>
-                  <option disabled selected>-  -</option>
-                  <option value="08:00">08:00</option>
-                  <option value="09:00">09:00</option>
-                  <option value="10:00">10:00</option>
-                  <option value="11:00">11:00</option>
-                  <option value="12:00">12:00</option>
-                  <option value="13:00">13:00</option>
-                  <option value="14:00">14:00</option>
-                  <option value="15:00">15:00</option>
-                  <option value="16:00">16:00</option>
-                  <option value="17:00">17:00</option>
-                  <option value="18:00">18:00</option>
-                  <option value="19:00">19:00</option>
-                  <option value="20:00">20:00</option>
-                </select> 
-              imposta una pausa dalle 
-                <select>
-                  <option disabled selected>-  -</option>
-                  <option value="08:00">08:00</option>
-                  <option value="09:00">09:00</option>
-                  <option value="10:00">10:00</option>
-                  <option value="11:00">11:00</option>
-                  <option value="12:00">12:00</option>
-                  <option value="13:00">13:00</option>
-                  <option value="14:00">14:00</option>
-                  <option value="15:00">15:00</option>
-                  <option value="16:00">16:00</option>
-                  <option value="17:00">17:00</option>
-                  <option value="18:00">18:00</option>
-                  <option value="19:00">19:00</option>
-                  <option value="20:00">20:00</option>
-                </select>  
-              alle 
-                <select>
-                  <option disabled selected>-  -</option>
-                  <option value="08:00">08:00</option>
-                  <option value="09:00">09:00</option>
-                  <option value="10:00">10:00</option>
-                  <option value="11:00">11:00</option>
-                  <option value="12:00">12:00</option>
-                  <option value="13:00">13:00</option>
-                  <option value="14:00">14:00</option>
-                  <option value="15:00">15:00</option>
-                  <option value="16:00">16:00</option>
-                  <option value="17:00">17:00</option>
-                  <option value="18:00">18:00</option>
-                  <option value="19:00">19:00</option>
-                  <option value="20:00">20:00</option>
-                </select></p>
+            
+
+          <div class="row d-flex justify-content-center align-items-center">
+            <h3 class="d-flex justify-content-center align-items-center">Imposta gli orari:</h3>
+            <div class="col-md-2 m-2 d-flex align-items-center">
+            <span>Dalle</span>
+            <select class="form-select w-auto mx-2">
+              <option selected>--</option>
+              <option>08:00</option>
+              
+            </select>
+          </div>
+          <div class="col-md-2 d-flex align-items-center">
+            <span>alle</span>
+            <select class="form-select w-auto mx-2">
+              <option selected>--</option>
+              <option>08:00</option>
+              
+            </select>
+          </div>
+          </div>
+          <div class="row d-flex justify-content-center align-items-center">
+            <h3 class="d-flex justify-content-center align-items-center">Imposta la pausa:</h3>
+            <div class="col-md-2 m-2 d-flex align-items-center">
+            <span>Dalle</span>
+            <select class="form-select w-auto mx-2">
+              <option selected>--</option>
+              <option>08:00</option>
+              
+            </select>
+          </div>
+          <div class="col-md-2 d-flex align-items-center">
+            <span>alle</span>
+            <select class="form-select w-auto mx-2">
+              <option selected>--</option>
+              <option>08:00</option>
+              
+            </select>
+          </div>
           </div>
         </div>
-        <!-- box 2 -->
-        <div class="box" style="width: 25%;">
-          <div id="calendar"></div>
+      </div>
+        <div class="col-md-3">
+          <div class="container bg-white custom-rounded">
+          </div>
         </div>
       </div>
-    
-      <!-- secondo div -->
-      <div class="box" style="width: 95%;">
-        <h2>Ultime prenotazioni</h2>
-        <div id="last-bookings">
-          <ul>
-            <li class="booking">Prenotazione 1</li>
-            <li class="booking">Prenotazione 2</li>
-          </ul>
-        </div>
-      </div>
-    
-      <!-- terzo div -->
-      <div class="box">
-        <h2>Terzo Div</h2>
-        <p>Contenuto terzo div</p>
-      </div>
-    
-      <!-- quarto div -->
-      <div class="box">
-        <h2>Quarto Div</h2>
-        <p>Contenuto quarto div</p>
-      </div>
-    
-      <!-- script del calendario -->
-      <script>
-        // qui va il codice per il calendario
-      </script>
-    
-    
-
-
-
+    </div>
+     
 
     <!-- FOOTER -->
     <footer>
