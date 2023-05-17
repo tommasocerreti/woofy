@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <title>Woofy</title>
-    <link rel="stylesheet" type="text/css" href="/prenota/style.css">
+    
     <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="icon" type="image/x-icon" href="/immagini/logo.ico">
+    <link rel="stylesheet" type="text/css" href="/prenota/style.css">
 
+    <link rel="icon" type="image/x-icon" href="/immagini/logo.ico">
   </head>
 
   <body>
@@ -58,7 +58,7 @@
             <!-- PICTURE -->
             <div class="col-md-3 d-flex justify-content-center align-items-center">
               <div class="picture">
-                <img src="../immagini/icone_professioni/parrucchiere_icon.png">
+                <img src="../immagini/icone_professioni/parrucchiere_icon.png" class="img-fluid w-55 h-55">
               </div>
             </div>
             <!-- DESCRIPTION -->
@@ -71,11 +71,16 @@
             <!-- COMBOBOXES -->
             <div class="col-md-3 d-flex justify-content-center align-items-center">
               <div class="comboboxes">
-                <select name="date">
+                <select class="form-select" name="date">
+                  <option selected disabled>Seleziona una data</option>
                   <option value="2023-05-15">15/05/2023</option>
+                  <!-- Aggiungi altre opzioni qui -->
                 </select>
-                <select name="time">
+                <div class="my-4"></div>
+                <select class="form-select" name="time">
+                  <option selected disabled>Seleziona un orario</option>
                   <option value="9:00">9:00</option>
+                  <!-- Aggiungi altre opzioni qui -->
                 </select>
               </div>
             </div>

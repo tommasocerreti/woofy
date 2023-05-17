@@ -5,7 +5,6 @@ body {
 
 
 
-
 /* STILE DELLA BARRA DEL MENU */
 .nav-item {
   font-weight: bold;
@@ -34,79 +33,36 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Stile del contenuto */
-.content {
+/* STILE DELL'HEADER */
+.header {
   text-align: center;
-  margin-top: 50px;
-  height:200px;  /*distanza tra titolo e sottostante */
+  margin-top: 80px; /* Distanza dalla barra del menu */
+  height:200px;
 }
 
-.content h1 {
+.header h1 {
   font-size: 72px;
   color: #fff;
 }
 
-.content .slogan {
+.header .slogan {
   font-size: 24px;
   color: #fff;
 }
 
-/* stile del box informativo */
+
+
+/* STILE DELL'INFO-BOX */
 .info-box {
-  top: -100px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
+  max-width: 800px;
+  max-height: 300px;
+  margin: 0 auto;
+}
+
+.custom-width {
   width: 50%;
-  margin: 50px auto 0;
-  padding: 20px;
-  background-color: #f5f5f5;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.info-box img {
-  position: relative;
-  top: 20.5px;
-  right: 0px;
-  width: 157.02px;
-  height: auto;
-  float: right;
-  margin: 0 0 0 0px;
-}
-
-.info-box .info-text {
-  flex: 1;
-}
-
-.info-box h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-.info-box p {
-  font-size: 24px;
-  line-height: 1.5;
-}
-/* fine stile del box informativo */
 
 
 /* Stile dei bottoni professioni */
@@ -117,6 +73,7 @@ body {
   align-items: center;
   text-align: center;
   margin-left: 3%;
+  margin-top: 80px;
 }
 
 .my-button {
