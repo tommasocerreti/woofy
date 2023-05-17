@@ -2,12 +2,11 @@ body{
   background-image: radial-gradient(circle, #1c3c82, #000436);
 }
 
-/* STILE DELLA BARRA DEL MENU */
+/* NAVBAR */
 .nav-item {
   font-weight: bold;
   position: relative;
 }
-
 .nav-item::after {
   content: "";
   position: absolute;
@@ -18,26 +17,16 @@ body{
   background-color: white;
   transition: width 0.5s ease-in-out;
 }
-
 .nav-item:hover::after {
   width: 100%;
   transform: scaleX(0.5);
 }
-
 .scrolled {
   background-color: #000436;
 }
 
 
-
-
-
-
-
-
-
-
-/* STILE DEL LOGIN */
+/* LOGIN */
 .login {
   background-color: rgba(0, 0, 0, 0.5);
   font-family: "Helvetica Neue", Arial, sans-serif;
@@ -54,16 +43,13 @@ body{
   align-items: center;
   gap: 15px;
 }
-
 .login h1 {
   margin-top: -80px;
 }
-
 .login h2 {
   margin-top: -10px;
   font-size: 20px;
 }
-
 .login input {
   display: block;
   padding: 12px;
@@ -73,7 +59,6 @@ body{
   margin-bottom: 10px;
   width: 300px;
 }
-
 .login button {
   display: block;
   padding: 10px;
@@ -85,13 +70,11 @@ body{
   border: none;
   font-size: larger;
 } 
-
 .login-buttons-area {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .login-buttons-area button:first-child{
   margin-top: 35px;
   margin-right: 150px;

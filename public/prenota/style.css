@@ -6,8 +6,7 @@ body {
 }
 
 
-
-/* STILE DELLA BARRA DEL MENU */
+/* NAVBAR */
 .nav-item {
   font-weight: bold;
   position: relative;
@@ -32,10 +31,13 @@ body {
 
 
 
-/* STILE DELLA PAGINA */
+/* HEADER */
 .header-container {
   margin-top: 60px;
 }
+
+
+/* SEARCHBAR */
 .searchbar-container {
   background-color: #f2f2f2;
   padding: 10px;
@@ -62,16 +64,20 @@ body {
   cursor: pointer;
   transition: transform 0.3s;
 }
+
+
+/* BOX */
 .custom-rounded {
   border-radius: 10px;
 }
-.bg-lightgray {
-  background-color: #f2f2f2;
-}
-.picture img {
+
+.picture img { /* DA RIVEDERE (espresso in pixel?) <-------------------------- */
   width: 150px;
   height: 150px;
 }
+
+
+/* BUTTONS */
 .btn.custom-btn {
   background-color: #777777;
   border-color: #777777;
@@ -88,7 +94,7 @@ body {
 
 
 
-/* STILE DEL FOOTER */
+/* FOOTER */
 footer {
   padding: 20px 0;
   text-align: center;

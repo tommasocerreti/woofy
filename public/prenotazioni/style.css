@@ -34,25 +34,23 @@ body{
 
 
 
-/* STILE DELLA PAGINA */
-.content {
+/* HEADER */
+.header {
   text-align: center;
   margin-top: 50px;
   height:200px;  /*distanza tra titolo e sottostante */
 }
-
-.content h1 {
+.header h1 {
   font-size: 72px;
   color: #fff;
 }
-
-.content .slogan {
+.header .slogan {
   font-size: 24px;
   color: #fff;
 }
 
 
-/* stile dei box */
+/* BOX */
 .box {
     width: 45%;
     padding: 20px;
@@ -124,7 +122,7 @@ select {
 
 
 
-/* STILE DEL FOOTER */
+/* FOOTER */
 footer {
   padding: 20px 0;
   text-align: center;

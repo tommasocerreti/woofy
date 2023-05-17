@@ -5,12 +5,11 @@ body {
 
 
 
-/* STILE DELLA BARRA DEL MENU */
+/* NAVBAR */
 .nav-item {
   font-weight: bold;
   position: relative;
 }
-
 .nav-item::after {
   content: "";
   position: absolute;
@@ -21,30 +20,26 @@ body {
   background-color: white;
   transition: width 0.5s ease-in-out;
 }
-
 .nav-item:hover::after {
   width: 100%;
   transform: scaleX(0.5);
 }
-
 .scrolled {
   background-color: #000436;
 }
 
 
 
-/* STILE DELL'HEADER */
+/* HEADER */
 .header {
   text-align: center;
   margin-top: 80px; /* Distanza dalla barra del menu */
   height:200px;
 }
-
 .header h1 {
   font-size: 72px;
   color: #fff;
 }
-
 .header .slogan {
   font-size: 24px;
   color: #fff;
@@ -52,20 +47,19 @@ body {
 
 
 
-/* STILE DELL'INFO-BOX */
+/* INFO-BOX */
 .info-box {
   max-width: 800px;
   max-height: 300px;
   margin: 0 auto;
 }
-
 .custom-width {
   width: 50%;
 }
 
 
 
-/* Stile dei bottoni professioni */
+/* BOTTONI PRENOTAZIONE RAPIDA */
 .button-container {
   display: flex;
   flex-wrap: wrap;
@@ -75,7 +69,6 @@ body {
   margin-left: 3%;
   margin-top: 80px;
 }
-
 .my-button {
   background-color: #ffffff;
   display: inline-block;
@@ -89,17 +82,14 @@ body {
   margin-right: 50px;
   margin-bottom: 30px;
 }
-
 .my-button:hover {
   transform: scale(1.15);
 }
-
 .my-button img {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
 .my-button span {
   position: absolute;
   bottom: -32px;
@@ -109,7 +99,6 @@ body {
   font-weight: bold;
   color: #ffffff;
 }
-
 .my-button:before {
   content: '';
   position: absolute;
@@ -121,25 +110,16 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 0.2s ease-in-out;
 }
-
 .my-button:hover:before {
   opacity: 0;
 }
-
 .button-row {
   margin-bottom: 30px;
 }
 
-/*Fine Stile dei bottoni professioni */
 
 
-
-
-
-
-
-
-/* STILE DEL FOOTER */
+/* FOOTER */
 footer {
   padding: 20px 0;
   text-align: center;
@@ -148,7 +128,6 @@ footer {
   background-color: transparent;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
-
 footer .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -157,31 +136,25 @@ footer .container {
   justify-content: space-between;
   align-items: center;
 }
-
 footer ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
-
 footer ul li {
   margin: 0 10px;
 }
-
 footer ul li:first-child {
   margin-left: 0;
 }
-
 footer ul li:last-child {
   margin-right: 0;
 }
-
 footer ul li a {
   color: #ffffff;
   text-decoration: none;
 }
-
 footer ul li a:hover {
   color: #ffffff;
 }
