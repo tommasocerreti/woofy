@@ -3,11 +3,8 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-
-
 /* NAVBAR */
 .nav-item {
-  font-weight: bold;
   position: relative;
 }
 .nav-item::after {
@@ -28,21 +25,10 @@ body {
   background-color: #000436;
 }
 
-
-
 /* HEADER */
-.header {
-  text-align: center;
-  margin-top: 80px; /* Distanza dalla barra del menu */
-  height:200px;
-}
-.header h1 {
-  font-size: 72px;
-  color: #fff;
-}
-.header .slogan {
-  font-size: 24px;
-  color: #fff;
+.header-container {
+  margin-top: 100px;
+  margin-bottom: 60px;
 }
 
 
@@ -115,6 +101,9 @@ body {
 }
 .button-row {
   margin-bottom: 30px;
+}
+.mybutton.shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 

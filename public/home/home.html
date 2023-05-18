@@ -2,11 +2,16 @@
 <html>
   <head>
     <title>Woofy</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-icons.css">
     
-    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/home/style.css">
 
     <link rel="icon" type="image/x-icon" href="/immagini/logo.ico">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/bootstrap.min.js"></script>
+    <script src="/home/script.js"></script>
   </head>
 
   <body>
@@ -14,30 +19,28 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link text-white" href="/" target="_parent">Home</a>
+          <a class="nav-link text-white fw-bold" href="/" target="_parent">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/prenotazioni.html" target="_parent">Prenotazioni</a>
+          <a class="nav-link text-white fw-bold" href="/prenotazioni.html" target="_parent">Prenotazioni</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/prenota.html" target="_parent">Prenota</a>
+          <a class="nav-link text-white fw-bold" href="/prenota.html" target="_parent">Prenota</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/login.html" target="_parent">Accedi</a>
+          <a class="nav-link text-white fw-bold" href="/login.html" target="_parent">Accedi</a>
         </li>
       </ul>
     </nav>
     
-    
     <!-- HEADER -->
-    <div class="header">
-      <h1>Woofy</h1>
-      <p class="slogan">La soluzione perfetta per le tue esigenze di prenotazione</p>
+    <div class="header-container d-flex flex-column align-items-center">
+      <h1 class="text-light display-1 fw-bold">Woofy</h1>
+      <p class="text-light display-6">La soluzione perfetta per le tue esigenze di prenotazione</p>
     </div>
-    
 
     <!-- INFO-BOX -->
-    <div class="container info-box small-info-box bg-light rounded shadow">
+    <div class="container info-box small-info-box bg-light rounded-3 shadow">
       <div class="row">
 
           <div class="col info-text">
@@ -58,27 +61,27 @@
 
       <div class="button-row"> <!-- RIGA 1 -->
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/architetto_icon.png">
           <span>Architetto</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/avvocato_icon.png">
           <span>Avvocato</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/commercialista_icon.png">
           <span>Commercialista</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/consulente_informatico_icon.png">
           <span>Consulente IT</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/dentista_icon.png">
           <span>Dentista</span>
         </a>
@@ -87,27 +90,27 @@
 
       <div class="button-row"> <!-- RIGA 2 -->
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/designer_interni_icon.png">
           <span>Designer d'Interni</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/elettricista_icon.png">
           <span>Elettricista</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/estetista_icon.png">
           <span>Estetista</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/fisioterapista_icon.png">
           <span>Fisioterapista</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/fotografo_icon.png">
           <span>Fotografo</span>
         </a>
@@ -116,27 +119,27 @@
 
       <div class="button-row"> <!-- RIGA 3 -->
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/idraulico_icon.png">
           <span>Idraulico</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/medico_icon.png">
           <span>Medico</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/notaio_icon.png">
           <span>Notaio</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/nutrizionista_icon.png">
           <span>Nutrizionista</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/osteopata_icon.png">
           <span>Osteopata</span>
         </a>
@@ -145,27 +148,27 @@
 
       <div class="button-row"> <!-- RIGA 4 -->
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/parrucchiere_icon.png">
           <span>Parrucchiere</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/psicologo_icon.png">
           <span>Psicologo</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/sarto_icon.png">
           <span>Sarto</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/tatuatore_icon.png">
           <span>Tatuatore</span>
         </a>
 
-        <a href="../prenotazioni/prenotazioni.html" class="my-button">
+        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
           <img src="../immagini/icone_professioni/veterinario_icon.png">
           <span>Veterinario</span>
         </a>
@@ -186,10 +189,6 @@
         </ul>
       </div>
     </footer> 
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <script src="/home/script.js"></script>
+    
   </body>
-
 </html>

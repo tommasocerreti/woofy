@@ -9,7 +9,6 @@ const nodemailer = require('nodemailer');
 app.use(express.static(__dirname + '/public'));
 
 
-
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/home/home.html');
 });
@@ -36,13 +35,36 @@ app.get('/registrazione.html', function(req, res) {
 
 
 
+app.get('/bootstrap.min.css', function(req, res) {
+  res.sendFile(__dirname + '/node_modules/bootstrap/dist/css/bootstrap.min.css');
+});
+
+app.get('/bootstrap-icons.css', function(req, res) {
+  res.sendFile(__dirname + '/node_modules/bootstrap-icons/font/bootstrap-icons.css');
+});
+
+app.get('/bootstrap.min.js', function(req, res) {
+  res.sendFile(__dirname + '/node_modules/bootstrap/dist/js/bootstrap.min.js');
+});
+
+app.get('/bootstrap.min.css.map', function(req, res) {
+  res.sendFile(__dirname + '/node_modules/bootstrap/dist/css/bootstrap.min.css.map');
+});
+
+app.get('/bootstrap.min.js.map', function(req, res) {
+  res.sendFile(__dirname + '/node_modules/bootstrap/dist/js/bootstrap.min.js.map');
+});
+
+
+
+
 
 
 app.use(express.static(path.join(__dirname, "public")));
 
 app.set('port', 3000);
 
-app.listen(3000, function () {
+app.listen(3000, () => {
   console.log('Server listening on port ' + app.get('port'));
 });
 

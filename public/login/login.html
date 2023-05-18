@@ -2,11 +2,16 @@
 <html>
   <head>
     <title>Woofy</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-icons.css">
     
-    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/login/style.css">
 
     <link rel="icon" type="image/x-icon" href="/immagini/logo.ico">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/bootstrap.min.js"></script>
+    <script src="/login/script.js"></script>
   </head>
 
   <body>
@@ -14,48 +19,36 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link text-white" href="/" target="_parent">Home</a>
+          <a class="nav-link text-white fw-bold" href="/" target="_parent">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/prenotazioni.html" target="_parent">Prenotazioni</a>
+          <a class="nav-link text-white fw-bold" href="/prenotazioni.html" target="_parent">Prenotazioni</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/prenota.html" target="_parent">Prenota</a>
+          <a class="nav-link text-white fw-bold" href="/prenota.html" target="_parent">Prenota</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/login.html" target="_parent">Accedi</a>
+          <a class="nav-link text-white fw-bold" href="/login.html" target="_parent">Accedi</a>
         </li>
       </ul>
     </nav>
 
-
     <!-- LOGIN -->
     <div class="login">
-
       <h1>Woofy</h1>
       <h2>Accedi alla piattaforma</h2>
-
       <form>
         <input type="text" placeholder="Email">
         <input type="password" placeholder="Password">
       </form>
-
       <div class="login-buttons-area">
-
         <a href="/registrazione.html">
           <button type="submit">Crea un account</button>
         </a>
-        
-        <button type="submit">Continua</button>
-
+        <button class="btn btn-primary btn-lg custom-btn">Continua</button>
       </div>
-
     </div>
     
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <script src="/login/script.js"></script>
-
   </body>
 
 </html>

@@ -72,14 +72,16 @@ body{
   justify-content: space-between;
   align-items: center;
   margin-top: -30px;
+  margin-bottom: 5px;
 }
 .register-buttons-area button:first-child {
   margin-top: 35px;
-  margin-right: 250px;
+  margin-right: 230px;
   background-color: #fff;
   color: #333;
   width:max-content;
 }
+
 select {
   width: max-content;
   appearance: none;
@@ -89,4 +91,16 @@ select {
   background-color: #fff;
   color: #333;
   font-size: 16px;
+}
+
+/* BUTTONS */
+.btn.custom-btn {
+  background-color: #777777;
+  border-color: #777777;
+  transition: transform 0.5s;
+}
+.btn.custom-btn:hover {
+  background-color: #333;
+  border-color: #333; 
+  transform:scale(1.05);
 }

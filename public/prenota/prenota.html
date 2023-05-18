@@ -2,44 +2,47 @@
 <html>
   <head>
     <title>Woofy</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-icons.css">
     
-    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/prenota/style.css">
 
     <link rel="icon" type="image/x-icon" href="/immagini/logo.ico">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/bootstrap.min.js"></script>
+    <script src="/prenota/script.js"></script>
   </head>
 
   <body>
-
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link text-white" href="/" target="_parent">Home</a>
+          <a class="nav-link text-white fw-bold" href="/" target="_parent">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/prenotazioni.html" target="_parent">Prenotazioni</a>
+          <a class="nav-link text-white fw-bold" href="/prenotazioni.html" target="_parent">Prenotazioni</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/prenota.html" target="_parent">Prenota</a>
+          <a class="nav-link text-white fw-bold" href="/prenota.html" target="_parent">Prenota</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/login.html" target="_parent">Accedi</a>
+          <a class="nav-link text-white fw-bold" href="/login.html" target="_parent">Accedi</a>
         </li>
       </ul>
     </nav>
 
     <!-- HEADER -->
     <div class="header-container d-flex flex-column align-items-center">
-      <h1 class="text-light">Prenota</h1>
-      <p class="text-light">Prenota qui il tuo prossimo appuntamento</p>
+      <h1 class="text-light">Prenota qui il tuo prossimo appuntamento</h1>
     </div>
 
     <!-- SEARCHBAR -->
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8">
-          <div class="searchbar-container d-flex justify-content-center">
+          <div class="searchbar-container d-flex justify-content-center rounded-3">
             <input type="text" class="form-control-lg" placeholder="Cerca professionisti...">
             <button class="btn btn-primary btn-lg custom-btn">Cerca</button>
           </div>
@@ -48,23 +51,23 @@
     </div>
     
     <!-- BOX -->
-    <div class="container bg-white custom-rounded col-md-5 my-4">
+    <div class="container bg-white rounded-3 col-md-7 my-4">
         <div class="row d-flex justify-content-center align-items-center">
           <!-- PICTURE -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-1">
+          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-2">
             <div class="picture">
               <img src="../immagini/icone_professioni/parrucchiere_icon.png" class="img-fluid w-55 h-55">
             </div>
           </div>
           <!-- DESCRIPTION -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-1">
+          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
             <div class="description">
               <p class="name"> Nome Professionista</p>
               <p class="location">Città, indirizzo</p>
             </div>
           </div>
           <!-- COMBOBOXES -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-1">
+          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
             <div class="comboboxes">
 
               <select class="form-select" name="date">
@@ -84,7 +87,7 @@
             </div>
           </div>
           <!-- BUTTON -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-1">
+          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
             <button class="book-btn btn btn-primary custom-btn">Prenota</button>
           </div>
         </div>
@@ -101,10 +104,6 @@
         </ul>
       </div>
     </footer> 
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <script src="/prenota/script.js"></script>
 
   </body>
 
