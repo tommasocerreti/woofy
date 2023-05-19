@@ -127,6 +127,27 @@ body{
   opacity: .1;
 }
 
+/* BOX */
+.picture img { /* DA RIVEDERE (espresso in pixel?) <-------------------------- */
+  width: 120px;
+  height: 120px;
+}
+
+
+/* BUTTONS */
+.btn.custom-btn {
+  background-color: #777777;
+  border-color: #777777;
+  transition: transform 0.5s;
+}
+.btn.custom-btn:hover {
+  background-color: #333;
+  border-color: #333; 
+  transform:scale(1.05);
+}
+.btn.book-btn {
+  padding: 50px;
+}
 
 
 
