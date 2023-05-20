@@ -210,6 +210,10 @@ body{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.custom-container2 {
+  --bs-gutter-x: 0rem; 
+}
+
 
 
 
