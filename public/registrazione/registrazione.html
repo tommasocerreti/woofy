@@ -21,19 +21,17 @@
       <h1>Woofy</h1>
       <h2>Registrati alla piattaforma</h2>
 
-      <form>
+      <form action="/registrazione" method="POST">
 
-        <input type="text" placeholder="Nome">
-        <input type="text" placeholder="Cognome">
-        <input type="text" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <input type="conferma_password" placeholder="Conferma Password"> <!-- NON NASCONDE LA PASSWORD PERCHÉ? -->
+        <input type="text" name="name" placeholder="nome" required>
+        <input type="text" surname="suername" placeholder="cognome" required>
+        <input type="text" email="email" placeholder="email" required>
+        <input type="password" password="password" placeholder="password" required>
+        <input type="conferma" confirmPassword="confirmPassword" placeholder="conferma Password" required> <!-- NON NASCONDE LA PASSWORD PERCHÉ? -->
 
         <div class="pick-profession-area">
           <h3>Sei un professionista?</h3>
-
           <select>
-
             <option disabled selected>Seleziona la tua professione</option>
             <option value="Architetto">Architetto</option>
             <option value="Avvocato">Avvocato</option>
@@ -55,17 +53,15 @@
             <option value="Tatuatore">Tatuatore</option>
             <option value="Veterinario">Veterinario</option>
             <option value="Consulente Informatico">Consulente Informatico</option>
-
           </select>
-
         </div>
 
-        <input type="tax code" placeholder="Codice Fiscale">
-        <input type="city" placeholder="Citta'">
+        <input type="tax code" taxcode="taxCode" placeholder="codice fiscale" required>
+        <input type="city" city="city" placeholder="citta'" required>
 
         <div class="indirizzo-cap">
-          <input type="address" placeholder="indirizzo">
-          <input type="cap" placeholder="CAP">
+          <input type="address" address="address" placeholder="indirizzo" required>
+          <input type="cap" cap="cap" placeholder="CAP" required>
         </div>
 
       </form>
@@ -74,7 +70,7 @@
         <a href="/login.html">
           <button type="submit">Indietro</button>
         </a>
-        <button class="btn btn-primary btn-lg custom-btn">Continua</button>
+        <button id="registerButton" class="btn btn-primary btn-lg custom-btn">Continua</button>
       </div>
 
     </div>

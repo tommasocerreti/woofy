@@ -1,90 +1,54 @@
 const express = require('express');
 const app = express();
-
 const path = require('path');
 const nodemailer = require('nodemailer');
-
-const mysql = require('mysql');
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '12345678',
-  database: 'db_woofy'
-});
-
-connection.connect(function(err) {
-  if (err) {
-    console.error('Errore di connessione al database: ' + err.stack);
-    return;
-  }
-
-  console.log('Connesso al database con ID connessione: ' + connection.threadId);
-});
+const connection = require('./db');
 
 
-
-
-app.use(express.static(__dirname + '/public'));
-
-
+// ROUTE
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/home/home.html');
 });
-
 app.get('/prenotazioni.html', function(req, res) {
   res.sendFile(__dirname + '/public/prenotazioni/prenotazioni.html');
 });
-
 app.get('/prenota.html', function(req, res) {
   res.sendFile(__dirname + '/public/prenota/prenota.html');
 });
-
 app.get('/prenota.html', function(req, res) {
   res.sendFile(__dirname + '/public/prenota/prenota.html');
 });
-
 app.get('/login.html', function(req, res) {
   res.sendFile(__dirname + '/public/login/login.html');
 });
-
 app.get('/registrazione.html', function(req, res) {
   res.sendFile(__dirname + '/public/registrazione/registrazione.html');
 });
 
-
-
 app.get('/bootstrap.min.css', function(req, res) {
   res.sendFile(__dirname + '/node_modules/bootstrap/dist/css/bootstrap.min.css');
 });
-
 app.get('/bootstrap-icons.css', function(req, res) {
   res.sendFile(__dirname + '/node_modules/bootstrap-icons/font/bootstrap-icons.css');
 });
-
 app.get('/bootstrap.min.js', function(req, res) {
   res.sendFile(__dirname + '/node_modules/bootstrap/dist/js/bootstrap.min.js');
 });
-
 app.get('/bootstrap.min.css.map', function(req, res) {
   res.sendFile(__dirname + '/node_modules/bootstrap/dist/css/bootstrap.min.css.map');
 });
-
 app.get('/bootstrap.min.js.map', function(req, res) {
   res.sendFile(__dirname + '/node_modules/bootstrap/dist/js/bootstrap.min.js.map');
 });
 
 
-
-
-
-
+// GESTIONE FILE STATICI
+app.use(express.static(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.set('port', 3000);
 
+// AVVIAMENTO SERVER
+app.set('port', 3000);
 app.listen(3000, () => {
   console.log('Server listening on port ' + app.get('port'));
 });
-
-
