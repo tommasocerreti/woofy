@@ -6,6 +6,8 @@ body {
 /* NAVBAR */
 .nav-item {
   position: relative;
+  color: white;
+  text-decoration: none;
 }
 .nav-item::after {
   content: "";
@@ -25,11 +27,6 @@ body {
   background-color: #000436;
 }
 
-/* HEADER */
-.header-container {
-  margin-top: 100px;
-  margin-bottom: 60px;
-}
 
 
 
