@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const nodemailer = require('nodemailer');
 const connection = require('./db');
+const bodyParser = require('body-parser');
 
 
 // ROUTE
@@ -45,6 +46,22 @@ app.get('/bootstrap.min.js.map', function(req, res) {
 // GESTIONE FILE STATICI
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, "public")));
+
+
+// CONFIGURAZIONE DI BODY PARSER
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.post('/registrazione', function(req, res) {
+  const name = req.body.name;
+  const surname = req.body.surname;
+  const email = req.body.email;
+  const password = req.body.password;
+  const confirmPassword = req.body.confirmPassword;
+  const profession = req.body.profession;
+  
+
+});
+
 
 
 // AVVIAMENTO SERVER
