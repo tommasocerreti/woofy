@@ -2,6 +2,15 @@ body{
   background-image: radial-gradient(circle, #1c3c82, #000436);
 }
 
+
+@media (max-width:767px) {
+  body {
+    transform: scale(0.5); /* Modifica il valore di scala desiderato (1:x) */
+    transform-origin: top;
+    background-image: radial-gradient(circle, #1c8246, #360000);
+  }
+}
+
 /* REGISTER */
 .register {
   font-family: "Helvetica Neue", Arial, sans-serif;
