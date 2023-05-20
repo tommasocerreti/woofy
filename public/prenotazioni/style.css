@@ -1,0 +1,269 @@
+body{
+  background-image: radial-gradient(circle, #1c3c82, #000436);
+}
+@media (max-width: 768px) {
+  body {
+    transform: scale(0.5); /* Modifica il valore di scala desiderato (1:x) */
+    transform-origin: top;
+  }
+}
+
+
+/* NAVBAR */
+.nav-item {
+  position: relative;
+}
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: white;
+  transition: width 0.5s ease-in-out;
+}
+.nav-item:hover::after {
+  width: 100%;
+  transform: scaleX(0.5);
+}
+.scrolled {
+  background-color: #000436;
+}
+
+
+
+
+
+
+/* HEADER */
+.header-container {
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+
+
+/* BUTTONS */
+.btn.custom-btn {
+  background-color: #777777;
+  border-color: #777777;
+  transition: transform 0.5s;
+}
+.btn.custom-btn:hover {
+  background-color: #333;
+  border-color: #333; 
+  transform:scale(1.05);
+}
+
+
+
+
+
+/* CALENDAR (BOOTSTRAP) */
+.dropdown-item-danger {
+  color: var(--bs-red);
+}
+.dropdown-item-danger:hover,
+.dropdown-item-danger:focus {
+  color: #fff;
+  background-color: var(--bs-red);
+}
+.dropdown-item-danger.active {
+  background-color: var(--bs-red);
+}
+
+.btn-hover-light {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+}
+.btn-hover-light:hover,
+.btn-hover-light:focus {
+  color: var(--bs-link-hover-color);
+  background-color: var(--bs-tertiary-bg);
+}
+
+.cal-month,
+.cal-days,
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+}
+.cal-month-name {
+  grid-column-start: 2;
+  grid-column-end: 7;
+  text-align: center;
+}
+.cal-weekday,
+.cal-btn {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding: 0;
+}
+.cal-btn:not([disabled]) {
+  font-weight: 500;
+  color: var(--bs-emphasis-color);
+}
+.cal-btn:hover,
+.cal-btn:focus {
+  background-color: var(--bs-secondary-bg);
+}
+.cal-btn[disabled] {
+  border: 0;
+  opacity: .5;
+}
+
+.w-220px {
+  width: 220px;
+}
+
+.w-280px {
+  width: 280px;
+}
+
+.w-340px {
+  width: 340px;
+}
+
+.opacity-10 {
+  opacity: .1;
+}
+
+/* BOX */
+.picture img { /* DA RIVEDERE (espresso in pixel?) <-------------------------- */
+  width: 120px;
+  height: 120px;
+}
+
+
+/* BUTTONS */
+.btn.custom-btn {
+  background-color: #777777;
+  border-color: #777777;
+  transition: transform 0.5s;
+}
+.btn.custom-btn:hover {
+  background-color: #333;
+  border-color: #333; 
+  transform:scale(1.05);
+}
+.btn.book-btn {
+  padding: 50px;
+}
+
+/* BOTTONI PRENOTAZIONE RAPIDA */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 3%;
+  margin-top: 80px;
+}
+.my-button {
+  background-color: #ffffff;
+  display: inline-block;
+  position: relative;
+  /* overflow: hidden; */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3); /* Aggiunta dell'ombra */
+  border-radius: 8px; /* Aggiunta dei bordi arrotondati */
+  transition: all 0.3s ease-in-out;
+  width: 125px;
+  height: 125px;
+  margin-right: 50px;
+  margin-bottom: 30px;
+}
+.my-button:hover {
+  transform: scale(1.15);
+}
+.my-button img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.my-button span {
+  position: absolute;
+  bottom: -32px;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.my-button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+.my-button:hover:before {
+  opacity: 0;
+}
+.button-row {
+  margin-bottom: 30px;
+}
+.mybutton.shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.custom-container2 {
+  --bs-gutter-x: 0rem; 
+}
+
+
+
+
+/* FOOTER */
+footer {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: transparent;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+footer ul li {
+  margin: 0 10px;
+}
+footer ul li:first-child {
+  margin-left: 0;
+}
+
+footer ul li:last-child {
+  margin-right: 0;
+}
+
+footer ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  color: #ffffff;
+}

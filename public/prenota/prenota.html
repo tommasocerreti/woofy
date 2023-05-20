@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Woofy</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-icons.css">
+    
+    <link rel="stylesheet" type="text/css" href="/prenota/style.css">
+
+    <link rel="icon" type="image/x-icon" href="/immagini/logo.ico">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/bootstrap.min.js"></script>
+    <script src="/prenota/script.js"></script>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white fw-bold" href="/" target="_parent">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-bold" href="/prenotazioni.html" target="_parent">Prenotazioni</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-bold" href="/prenota.html" target="_parent">Prenota</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-bold" href="/login.html" target="_parent">Accedi</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="header-container d-flex flex-column align-items-center">
+      <h1 class="text-light">Prenota il tuo prossimo appuntamento</h1>
+    </div>
+
+    <!-- SEARCHBAR -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="searchbar-container d-flex justify-content-center rounded-3">
+            <input type="text" class="form-control-lg" placeholder="Cerca professionisti...">
+            <button class="btn btn-primary btn-lg custom-btn">Cerca</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- BOX -->
+    <div class="container bg-white rounded-3 col-md-6 my-4">
+        <div class="row d-flex justify-content-center align-items-center">
+          <!-- PICTURE -->
+          <div class="col-md-auto my-2 mx-4">
+            <div class="picture">
+              <img src="../immagini/icone_professioni/parrucchiere_icon.png" class="img-fluid w-55 h-55">
+            </div>
+          </div>
+          <!-- DESCRIPTION -->
+          <div class="col-md-auto my-2 mx-4">
+            <div class="description">
+              <p class="name"> Nome Professionista</p>
+              <p class="location">Città, indirizzo</p>
+            </div>
+          </div>
+          <!-- COMBOBOXES -->
+          <div class="col-md-auto my-2 mx-4">
+            <div class="comboboxes">
+
+              <select class="form-select" name="date">
+                <option selected disabled>Seleziona una data</option>
+                <option value="2023-05-15">15/05/2023</option>
+                <!-- altre opzioni da aggiungere -->
+              </select>
+
+              <div class="my-3"></div>
+
+              <select class="form-select" name="time">
+                <option selected disabled>Seleziona un orario</option>
+                <option value="9:00">9:00</option>
+                <!-- altre opzioni da aggiungere -->
+              </select>
+              
+            </div>
+          </div>
+          <!-- BUTTON -->
+          <div class="col-md-auto my-2 mx-4">
+            <button class="book-btn btn btn-primary custom-btn">Prenota</button>
+          </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer">
+        <p>Woofy &copy; 2023</p>
+        <ul>
+          <li><a href="#">Termini di servizio</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Contattaci</a></li>
+        </ul>
+      </div>
+    </footer> 
+
+  </body>
+
+</html>

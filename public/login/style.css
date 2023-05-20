@@ -1,0 +1,105 @@
+body{
+  background-image: radial-gradient(circle, #1c3c82, #000436);
+}
+@media (max-width: 768px) {
+  body {
+    transform: scale(0.5); /* Modifica il valore di scala desiderato (1:x) */
+    transform-origin: top;
+  }
+}
+
+
+/* NAVBAR */
+.nav-item {
+  position: relative;
+  color: white;
+  text-decoration: none;
+}
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: white;
+  transition: width 0.5s ease-in-out;
+}
+.nav-item:hover::after {
+  width: 100%;
+  transform: scaleX(0.5);
+}
+.scrolled {
+  background-color: #000436;
+}
+
+
+/* LOGIN */
+.login {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #fefefe;
+  margin: 7% auto;
+  padding: 100px;
+  border: 1px solid #fff;
+  width: 450px;
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.login h1 {
+  margin-top: -80px;
+}
+.login h2 {
+  margin-top: -10px;
+  font-size: 20px;
+}
+.login input {
+  display: block;
+  padding: 12px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+.login button {
+  display: block;
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  margin-bottom: -110px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  font-size: larger;
+} 
+.login-buttons-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-buttons-area button:first-child{
+  margin-top: 35px;
+  margin-right: 150px;
+  background-color: #fff;
+  color: #333;
+  width:max-content;
+}
+
+
+/* BUTTONS */
+.btn.custom-btn {
+  background-color: #777777;
+  border-color: #777777;
+  transition: transform 0.5s;
+}
+.btn.custom-btn:hover {
+  background-color: #333;
+  border-color: #333; 
+  transform:scale(1.05);
+}

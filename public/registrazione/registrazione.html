@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Woofy</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-icons.css">
+    
+    <link rel="stylesheet" type="text/css" href="/registrazione/style.css">
+
+    <link rel="icon" type="image/x-icon" href="/immagini/logo.ico">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/bootstrap.min.js"></script>
+    <script src="/registrazione/script.js"></script>
+  </head>
+
+  <body>
+    <!-- REGISTER -->
+    <div class="register">
+
+      <h1>Woofy</h1>
+      <h2>Registrati alla piattaforma</h2>
+
+      <form>
+
+        <input type="text" placeholder="Nome">
+        <input type="text" placeholder="Cognome">
+        <input type="text" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <input type="conferma_password" placeholder="Conferma Password"> <!-- NON NASCONDE LA PASSWORD PERCHÉ? -->
+
+        <div class="pick-profession-area">
+          <h3>Sei un professionista?</h3>
+
+          <select>
+
+            <option disabled selected>Seleziona la tua professione</option>
+            <option value="Architetto">Architetto</option>
+            <option value="Avvocato">Avvocato</option>
+            <option value="Commercialista">Commercialista</option>
+            <option value="Dentista">Dentista</option>
+            <option value="Designer Di'Interni">Designer Di'Interni</option>
+            <option value="Elettricista">Elettricista</option>
+            <option value="Estetista">Estetista</option>
+            <option value="Fisioterapista">Fisioterapista</option>
+            <option value="Fotografo">Fotografo</option>
+            <option value="Idraulico">Idraulico</option>
+            <option value="Medico">Medico</option>
+            <option value="Nutrizionista">Nutrizionista</option>
+            <option value="Notaio">Notaio</option>
+            <option value="Osteopata">Osteopata</option>
+            <option value="Parrucchiere">Parrucchiere</option>
+            <option value="Psicologo">Psicologo</option>
+            <option value="Sarto">Sarto</option>
+            <option value="Tatuatore">Tatuatore</option>
+            <option value="Veterinario">Veterinario</option>
+            <option value="Consulente Informatico">Consulente Informatico</option>
+
+          </select>
+
+        </div>
+
+        <input type="tax code" placeholder="Codice Fiscale">
+        <input type="city" placeholder="Citta'">
+
+        <div class="indirizzo-cap">
+          <input type="address" placeholder="indirizzo">
+          <input type="cap" placeholder="CAP">
+        </div>
+
+      </form>
+
+      <div class="register-buttons-area">
+        <a href="/login.html">
+          <button type="submit">Indietro</button>
+        </a>
+        <button class="btn btn-primary btn-lg custom-btn">Continua</button>
+      </div>
+
+    </div>
+    <!-- Ridimensionamento -->
+    <script src="script.js"></script>
+  </body>
+
+</html>
