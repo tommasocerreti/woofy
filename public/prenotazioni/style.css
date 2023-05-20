@@ -1,7 +1,12 @@
 body{
   background-image: radial-gradient(circle, #1c3c82, #000436);
 }
-
+@media (max-width: 768px) {
+  body {
+    transform: scale(0.5); /* Modifica il valore di scala desiderato (1:x) */
+    transform-origin: top;
+  }
+}
 
 
 /* NAVBAR */

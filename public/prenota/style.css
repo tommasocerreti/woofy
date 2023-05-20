@@ -4,11 +4,26 @@ body {
   font-family: Arial, sans-serif;
   background-image: radial-gradient(circle, #1c3c82, #000436);
 }
-
+@media (max-width:767px) {
+  body {
+    transform: scale(0.5); /* Modifica il valore di scala desiderato (1:x) */
+    transform-origin: top;
+    background-image: radial-gradient(circle, #1c8246, #360000);
+  }
+}
+@media (min-width:768px) and  (max-width:1400px) {
+  body {
+    transform: scale(0.8); /* Modifica il valore di scala desiderato (1:x) */
+    transform-origin: top;
+    background-image: radial-gradient(circle, #821c63, #360000);
+  }
+}
 
 /* NAVBAR */
 .nav-item {
   position: relative;
+  color: white;
+  text-decoration: none;
 }
 .nav-item::after {
   content: "";
