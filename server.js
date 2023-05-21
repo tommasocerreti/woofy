@@ -4,6 +4,14 @@ const path = require('path');
 const nodemailer = require('nodemailer');
 const connection = require('./db');
 const bodyParser = require('body-parser');
+const validator = require('validator');
+const session = require('express-session');
+
+app.use(session({
+  secret: 'segreto',
+  resave: false,
+  saveUninitialized: true
+}));
 
 
 // ROUTE
@@ -51,15 +59,87 @@ app.use(express.static(path.join(__dirname, "public")));
 // CONFIGURAZIONE DI BODY PARSER
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//  CONFIGURAZIONE DEL MIDDLEWARE PER L'UTILIZZO DELLE SESSIONI E SPECIFICA UNA CHIAVE SEGRETA PER CRITTOGRAFARE I DATI DI SESSIONE
+app.use(session({
+  secret: 'segreto',
+  resave: false,
+  saveUninitialized: true
+}));
+
+
+// REGISTRAZIONE
 app.post('/registrazione', function(req, res) {
-  const name = req.body.name;
+  const firstName = req.body.firstName;
   const surname = req.body.surname;
   const email = req.body.email;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
   const profession = req.body.profession;
+  const city = req.body.city;
+  const address = req.body.address;
   
+  connection.query('SELECT * FROM user WHERE email = ?', [email], function(error, results) {
+    // VERIFICA DELLA PRESENZA DELL'EMAIL NEL DATABASE
+    if (error) {
+      console.error('Errore durante la verifica dell\'email nel database:', error);
+      return res.send('Si è verificato un errore durante la registrazione. Riprova più tardi.');
+    }
 
+    if (results.length > 0) {
+      return res.send('L\'indirizzo email è già stato registrato.');
+    }
+
+    // INSERIMENTO DELL'UTENTE NEL DATABASE
+    const newUser = {
+      firstName: firstName,
+      surname: surname,
+      email: email,
+      password: password,
+      profession: profession,
+      city: city,
+      address: address,
+    };
+
+    connection.query('INSERT INTO user (first_name, surname, email, password, profession, city, address) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+              [newUser.firstName, newUser.surname, newUser.email, newUser.password, newUser.profession, newUser.city, newUser.address], function(error, results) {
+      if (error) {
+        console.error('Errore durante l\'inserimento dell\'utente nel database:', error);
+        return res.send('Si è verificato un errore durante la registrazione. Riprova più tardi.');
+      }
+      res.redirect('/');
+    });
+  });
+});
+
+// LOGIN
+app.post('/login', function(req, res) {
+  const email = req.body.email;
+  const password = req.body.password;
+
+  // Esegui una query per verificare se esiste un utente con l'email fornita
+  connection.query('SELECT * FROM user WHERE email = ?', [email], function(error, results) {
+    if (error) {
+      console.error('Errore durante la ricerca dell\'utente nel database:', error);
+      return res.status(500).send('Si è verificato un errore durante la ricerca dell\'utente nel database.');
+    }
+
+    // Verifica se l'utente esiste
+    if (results.length === 0) {
+      return res.status(401).send('Email o password non validi.');
+    }
+
+    // L'utente esiste, verifica la password
+    const user = results[0];
+    if (password === user.password) {
+      // Password corretta, avvia la sessione o restituisci un messaggio di successo
+      req.session.user = user;
+      return res.redirect('/'); // Reindirizza all'area riservata o invia un messaggio di successo
+    } else {
+      // Password non valida
+      return res.status(401).send('Email o password non validi.');
+    }
+  });
 });
 
 

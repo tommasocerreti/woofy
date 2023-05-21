@@ -8,10 +8,6 @@
     <link rel="stylesheet" type="text/css" href="/registrazione/style.css">
 
     <link rel="icon" type="image/x-icon" href="/immagini/logo.ico">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/bootstrap.min.js"></script>
-    <script src="/registrazione/script.js"></script>
   </head>
 
   <body>
@@ -23,11 +19,11 @@
 
       <form action="/registrazione" method="POST">
 
-        <input type="text" name="name" placeholder="nome" required>
-        <input type="text" surname="suername" placeholder="cognome" required>
-        <input type="text" email="email" placeholder="email" required>
-        <input type="password" password="password" placeholder="password" required>
-        <input type="conferma" confirmPassword="confirmPassword" placeholder="conferma password" required> <!-- NON NASCONDE LA PASSWORD PERCHÉ? -->
+        <input type="string" name="firstName" placeholder="nome" required>
+        <input type="string" name="surname" placeholder="cognome" required>
+        <input type="string" name="email" placeholder="email" required>
+        <input type="password" name="password" placeholder="password" required>
+        <input type="password" name="confirmPassword" placeholder="conferma password" required>
 
         <div class="pick-profession-area">
           <h3>Sei un professionista?</h3>
@@ -56,24 +52,21 @@
           </select>
         </div>
 
-        <input type="tax code" taxcode="taxCode" placeholder="codice fiscale" required>
-        <input type="city" city="city" placeholder="citta'" required>
+        <input type="city" name="city" placeholder="citta'">
+        <input type="address" name="address" placeholder="indirizzo">
 
-        <div class="indirizzo-cap">
-          <input type="address" address="address" placeholder="indirizzo" required>
-          <input type="cap" cap="cap" placeholder="CAP" required>
-        </div>
+        <button id="registerButton" class="btn btn-primary btn-lg custom-btn" type="submit" value="Continua">Continua</button>
 
       </form>
 
-      <div class="register-buttons-area">
-        <a href="/login.html">
-          <button type="submit">Indietro</button>
-        </a>
-        <button id="registerButton" class="btn btn-primary btn-lg custom-btn">Continua</button>
-      </div>
+      <a href="/login.html">
+        <button type="submit">Indietro</button>
+      </a>
 
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/bootstrap.min.js"></script>
+    <script src="/registrazione/script.js"></script>
   </body>
 
 </html>
