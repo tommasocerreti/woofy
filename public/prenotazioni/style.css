@@ -1,14 +1,6 @@
 body{
   background-image: radial-gradient(circle, #1c3c82, #000436);
 }
-@media (max-width: 768px) {
-  body {
-    transform: scale(0.5); /* Modifica il valore di scala desiderato (1:x) */
-    transform-origin: top;
-  }
-}
-
-
 /* NAVBAR */
 .nav-item {
   position: relative;
@@ -155,7 +147,10 @@ body{
 .btn.book-btn {
   padding: 50px;
 }
-
+.time-button {
+  font-size: 20px;
+  padding: 10px 20px;
+}
 /* BOTTONI PRENOTAZIONE RAPIDA */
 .button-container {
   display: flex;
@@ -178,16 +173,6 @@ body{
   height: 125px;
   margin-right: 50px;
   margin-bottom: 30px;
-  @media (max-width:1400px){
-  width: 90px;
-  height: 90px;
-  }
-  @media (max-width:1199px){
-  width: 70px;
-  height: 70px;
-  margin-right: 50px;
-  margin-bottom: 30px;
-  }
 }
 .my-button:hover {
   transform: scale(1.15);
@@ -229,6 +214,10 @@ body{
 
 .custom-container2 {
   --bs-gutter-x: 0rem; 
+}
+
+.user-btn{
+  width:300px;
 }
 
 
@@ -278,4 +267,47 @@ footer ul li a {
 
 footer ul li a:hover {
   color: #ffffff;
+}
+.custom-row > * {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+
+@media (max-width: 1400px) {
+  .my-button{
+  width: 90px;
+  height: 90px;
+  }
+  .time-button {
+    font-size: 15px;
+    padding: 15px 20px;
+  }
+  
+}
+
+@media (max-width: 1199px) {
+  .my-button{
+  width: 70px;
+  height: 70px;  
+  }
+  .time-button {
+    font-size: 13px;
+    padding: 12px 15px;
+  }
+  .user-btn{
+    width: 150px;
+  }
+  .timebox-row > *{
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .time-button {
+    font-size: 12px;
+    padding: 12px 15px;
+    
+  }
+  
 }
