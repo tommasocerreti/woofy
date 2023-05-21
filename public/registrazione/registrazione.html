@@ -19,11 +19,11 @@
 
       <form action="/registrazione" method="POST">
 
-        <input type="string" name="firstName" placeholder="nome" required>
-        <input type="string" name="surname" placeholder="cognome" required>
-        <input type="string" name="email" placeholder="email" required>
-        <input type="password" name="password" placeholder="password" required>
-        <input type="password" name="confirmPassword" placeholder="conferma password" required>
+        <input type="string" name="firstName" placeholder="nome">
+        <input type="string" name="surname" placeholder="cognome">
+        <input type="string" name="email" placeholder="email">
+        <input type="password" name="password" placeholder="password">
+        <input type="password" name="confirmPassword" placeholder="conferma password">
 
         <div class="pick-profession-area">
           <h3>Sei un professionista?</h3>
@@ -55,13 +55,16 @@
         <input type="city" name="city" placeholder="citta'">
         <input type="address" name="address" placeholder="indirizzo">
 
-        <button id="registerButton" class="btn btn-primary btn-lg custom-btn" type="submit" value="Continua">Continua</button>
+        <div class="register-buttons-area">
+          <a href="/login.html">
+            <button type="button">Indietro</button>
+          </a>
+          <button id="registerButton" class="btn btn-primary btn-lg custom-btn" type="submit" value="Continua">Continua</button>
+        </div>
 
       </form>
 
-      <a href="/login.html">
-        <button type="submit">Indietro</button>
-      </a>
+
 
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
