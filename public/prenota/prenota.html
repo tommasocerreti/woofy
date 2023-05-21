@@ -16,32 +16,22 @@
 
   <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link text-white fw-bold" href="/" target="_parent">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white fw-bold" href="/prenotazioni.html" target="_parent">Prenotazioni</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white fw-bold" href="/prenota.html" target="_parent">Prenota</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white fw-bold" href="/login.html" target="_parent">Accedi</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="navbar justify-content-center align-items-center">
+      <a class="nav-item mx-3 fw-bold" href="/" target="_parent">Home</a>
+      <a class="nav-item mx-3 fw-bold" href="/prenotazioni.html" target="_parent">Prenotazioni</a>
+      <a class="nav-item mx-3 fw-bold" href="/prenota.html" target="_parent">Prenota</a>
+      <a class="nav-item mx-3 fw-bold" href="/login.html" target="_parent">Accedi</a>
+    </div>
 
     <!-- HEADER -->
     <div class="header-container d-flex flex-column align-items-center">
-      <h1 class="text-light">Prenota il tuo prossimo appuntamento</h1>
+      <h1 class="text-light custom-title">Prenota il tuo prossimo appuntamento</h1>
     </div>
 
     <!-- SEARCHBAR -->
-    <div class="container">
+    <div class="container container-search">
       <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col">
           <div class="searchbar-container d-flex justify-content-center rounded-3">
             <input type="text" class="form-control-lg" placeholder="Cerca professionisti...">
             <button class="btn btn-primary btn-lg custom-btn">Cerca</button>
@@ -51,24 +41,24 @@
     </div>
     
     <!-- BOX -->
-    <div class="container bg-white rounded-3 col-md-6 my-4">
+    <div class="container container-box  rounded-3 my-4">
         <div class="row d-flex justify-content-center align-items-center">
           <!-- PICTURE -->
-          <div class="col-md-auto my-2 mx-4">
+          <div class="col my-2 mx-4">
             <div class="picture">
-              <img src="../immagini/icone_professioni/parrucchiere_icon.png" class="img-fluid w-55 h-55">
+              <img src="../immagini/icone_professioni/parrucchiere_icon.png">
             </div>
           </div>
           <!-- DESCRIPTION -->
-          <div class="col-md-auto my-2 mx-4">
+          <div class="col my-2 mx-4">
             <div class="description">
-              <p class="name"> Nome Professionista</p>
+              <p class="name custom-text"> Nome Professionista</p>
               <p class="location">Città, indirizzo</p>
             </div>
           </div>
           <!-- COMBOBOXES -->
-          <div class="col-md-auto my-2 mx-4">
-            <div class="comboboxes">
+          <div class="col my-2 mx-4">
+            <div class="comboboxes custom-combobox">
 
               <select class="form-select" name="date">
                 <option selected disabled>Seleziona una data</option>

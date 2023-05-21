@@ -12,6 +12,8 @@ body{
 /* NAVBAR */
 .nav-item {
   position: relative;
+  color: white;
+  text-decoration: none;
 }
 .nav-item::after {
   content: "";

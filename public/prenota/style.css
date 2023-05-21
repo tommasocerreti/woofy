@@ -4,20 +4,6 @@ body {
   font-family: Arial, sans-serif;
   background-image: radial-gradient(circle, #1c3c82, #000436);
 }
-@media (max-width:767px) {
-  body {
-    transform: scale(0.5); /* Modifica il valore di scala desiderato (1:x) */
-    transform-origin: top;
-    background-image: radial-gradient(circle, #1c8246, #360000);
-  }
-}
-@media (min-width:768px) and  (max-width:1400px) {
-  body {
-    transform: scale(0.8); /* Modifica il valore di scala desiderato (1:x) */
-    transform-origin: top;
-    background-image: radial-gradient(circle, #821c63, #360000);
-  }
-}
 
 /* NAVBAR */
 .nav-item {
@@ -43,8 +29,37 @@ body {
   background-color: #000436;
 }
 
+.container-box{
+  background: white;
+  max-width: 950px;
+  @media (max-width:1000px){
+    max-width: 700px;
+    }
+  @media (max-width:769px){
+    max-width: 600px;
+    }
+  @media (max-width:630px){
+    max-width: 450px;
+    }
+ }
+.container-search{
+  max-width: 950px;
+  @media (max-width:1890px){
+  }
+}
 
-
+.custom-combobox{
+  @media (max-width:630px){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+  }
+.custom-title{
+  @media (max-width:630px){
+    font-size: 25px;
+    }
+  }
 /* HEADER */
 .header-container {
   margin-top: 100px;
@@ -85,15 +100,26 @@ body {
 .picture img { /* DA RIVEDERE (espresso in pixel?) <-------------------------- */
   width: 150px;
   height: 150px;
+  @media (max-width:769px){
+    max-width: 80px;
+    max-height: 80px;
+  }
+  @media (max-width:630px){
+    margin-left :30px;
+    }
+  }
+
+  .custom-text{
+  @media (max-width:769px){
+    margin-top:17px;
+  }
 }
-
-
 /* BUTTONS */
 .btn.custom-btn {
   background-color: #777777;
   border-color: #777777;
   transition: transform 0.5s;
-}
+  }
 .btn.custom-btn:hover {
   background-color: #333;
   border-color: #333; 
@@ -101,6 +127,14 @@ body {
 }
 .btn.book-btn {
   padding: 50px;
+  @media (max-width:769px){
+    padding: 10px;
+    max-width: 100px;
+    margin-left: 255px;
+    }
+  @media (max-width:630px){
+    margin-left :175px;
+    }
 }
 
 select.form-select {
