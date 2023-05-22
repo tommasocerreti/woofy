@@ -39,19 +39,19 @@ app.set('views', path.join(__dirname, 'views'));
 
 // ROUTE
 app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/views/home/home.html');
+  res.render(path.join(__dirname, 'views', 'home', 'home.ejs'));
 });
 app.get('/prenotazioni', function(req, res) {
-  res.sendFile(__dirname + '/views/prenotazioni/prenotazioni.html');
+  res.render(path.join(__dirname, 'views', 'prenotazioni', 'prenotazioni.ejs'));
 });
 app.get('/prenota', function(req, res) {
   res.render(path.join(__dirname, 'views', 'prenota', 'prenota.ejs'));
 });
 app.get('/login', function(req, res) {
-  res.sendFile(__dirname + '/views/login/login.html');
+  res.render(path.join(__dirname, 'views', 'login', 'login.ejs'));
 });
 app.get('/registrazione', function(req, res) {
-  res.sendFile(__dirname + '/views/registrazione/registrazione.html');
+  res.render(path.join(__dirname, 'views', 'registrazione', 'registrazione.ejs'));
 });
 
 app.get('/bootstrap.min.css', function(req, res) {
