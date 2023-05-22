@@ -207,16 +207,20 @@ app.post('/prenota', function(req, res) {
       console.log(results);
 
       if (!results || results.length === 0) {
-        return res.render('prenota/prenota', { professionals: [] });
+        return res.render('prenota/prenota', { professionals: [], professione: profession });
       }
 
-      res.render('prenota/prenota', { professionals: results });
+      res.render('prenota/prenota', { professionals: results, professione: profession });
     } catch (error) {
       console.error('Si è verificato un errore durante la ricerca dei professionisti:', error);
       res.status(500).send('Si è verificato un errore durante la ricerca dei professionisti.');
     }
   });
 });
+
+
+
+
 
 
 
