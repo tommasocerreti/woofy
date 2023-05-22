@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Woofy</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-icons.css">
+    
+    <link rel="stylesheet" type="text/css" href="/prenota/style.css">
+
+    <link rel="icon" type="image/x-icon" href="/immagini/logo.ico">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/bootstrap.min.js"></script>
+    <script src="/prenota/script.js"></script>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <div class="navbar justify-content-center align-items-center">
+      <a class="nav-item mx-3 fw-bold" href="/" target="_parent">Home</a>
+      <a class="nav-item mx-3 fw-bold" href="/prenotazioni.html" target="_parent">Prenotazioni</a>
+      <a class="nav-item mx-3 fw-bold" href="/prenota.html" target="_parent">Prenota</a>
+      <a class="nav-item mx-3 fw-bold" href="/login.html" target="_parent">Accedi</a>
+    </div>
+
+    <!-- HEADER -->
+    <div class="header-container d-flex flex-column align-items-center">
+      <h1 class="text-light custom-title">Prenota il tuo prossimo appuntamento</h1>
+    </div>
+
+    <!-- SEARCHBAR -->
+    <div class="container container-search">
+      <div class="row justify-content-center">
+        <div class="col">
+          <form class="searchbar-container d-flex justify-content-center rounded-3" action="/search-professionals" method="POST">
+              <input type="text" name="profession" placeholder="Cerca professionisti..." required>
+              <button type="submit" class="btn btn-primary btn-lg custom-btn">Cerca</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <% include('search-professionals.ejs') %>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer">
+        <p>Woofy &copy; 2023</p>
+        <ul>
+          <li><a href="#">Termini di servizio</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Contattaci</a></li>
+        </ul>
+      </div>
+    </footer> 
+
+  </body>
+
+</html>

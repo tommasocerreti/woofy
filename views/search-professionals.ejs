@@ -1,6 +1,8 @@
 <div class="container">
     <div class="row">
-      <% professionals.forEach(function(professional) { %>
+      <% if (professionals != undefined){
+        professionals.forEach(function(professional){ %>
+
       <!-- BOX -->
       <div class="container container-box rounded-3 my-4">
         <div class="row d-flex justify-content-center align-items-center">
@@ -41,6 +43,12 @@
           </div>
         </div>
       </div>
-      <% }); %>
+      <% })} else { %>
+
+        <div>
+          
+        </div>
+  
+      } %>
     </div>
   </div>
