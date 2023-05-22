@@ -8,29 +8,26 @@ const validator = require('validator');
 const session = require('express-session');
 const handlebars = require('handlebars');
 
-app.use(express.static('./public/prenota'));
 
-app.set('views', './public/prenota/');
+app.use(express.static('./views/prenota'));
+app.set('views', path.join(__dirname, 'views'));
 
 
 // ROUTE
 app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/public/home/home.html');
+  res.sendFile(__dirname + '/views/home/home.html');
 });
 app.get('/prenotazioni', function(req, res) {
-  res.sendFile(__dirname + '/public/prenotazioni/prenotazioni.html');
+  res.sendFile(__dirname + '/views/prenotazioni/prenotazioni.html');
 });
 app.get('/prenota', function(req, res) {
-  res.render('prenota');
-});
-app.get('/prenota', function(req, res) {
-  res.sendFile(__dirname + '/public/prenota/prenota.html');
+  res.render(path.join(__dirname, 'views', 'prenota', 'prenota.ejs'));
 });
 app.get('/login', function(req, res) {
-  res.sendFile(__dirname + '/public/login/login.html');
+  res.sendFile(__dirname + '/views/login/login.html');
 });
 app.get('/registrazione', function(req, res) {
-  res.sendFile(__dirname + '/public/registrazione/registrazione.html');
+  res.sendFile(__dirname + '/views/registrazione/registrazione.html');
 });
 
 app.get('/bootstrap.min.css', function(req, res) {
@@ -59,8 +56,8 @@ app.use(session({
 }));
 
 // GESTIONE FILE STATICI
-app.use(express.static(__dirname + '/public'));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(__dirname + '/views'));
+app.use(express.static(path.join(__dirname, "views")));
 
 // CONFIGURAZIONE DI BODY PARSER
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -181,26 +178,6 @@ app.post('/prenota', function(req, res) {
 });
 
 
-
-/*
-app.post('/search-professionals', function(req, res) {
-  const profession = req.body.profession;
-
-  connection.query('SELECT * FROM User WHERE profession = ?', [profession], function(error, results) {
-    if (error) {
-      console.error('Errore durante la ricerca dei professionisti:', error);
-      return res.status(500).send('Si è verificato un errore durante la ricerca dei professionisti.');
-    }
-
-    console.log(results);
-
-    if(results == undefined){
-      res.render('search-professionals', { professionals: [] });
-    }
-    res.render('search-professionals', { professionals: results });
-  });
-});
-*/
 
 // AVVIAMENTO SERVER
 app.set('port', 3000);
