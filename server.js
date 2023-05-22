@@ -17,20 +17,19 @@ app.set('views', './public/prenota/');
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/home/home.html');
 });
-app.get('/prenotazioni.html', function(req, res) {
+app.get('/prenotazioni', function(req, res) {
   res.sendFile(__dirname + '/public/prenotazioni/prenotazioni.html');
 });
 app.get('/prenota', function(req, res) {
-  //res.sendFile(__dirname + '/public/prenota/prenota.html');
   res.render('prenota');
 });
-app.get('/prenota.html', function(req, res) {
+app.get('/prenota', function(req, res) {
   res.sendFile(__dirname + '/public/prenota/prenota.html');
 });
-app.get('/login.html', function(req, res) {
+app.get('/login', function(req, res) {
   res.sendFile(__dirname + '/public/login/login.html');
 });
-app.get('/registrazione.html', function(req, res) {
+app.get('/registrazione', function(req, res) {
   res.sendFile(__dirname + '/public/registrazione/registrazione.html');
 });
 
@@ -157,7 +156,7 @@ app.post('/login', function(req, res) {
 
 
 // RICERCA DEL PROFESSIONISTA NELLA PAGINA PRENOTA
-app.post('/search-professionals', function(req, res) {
+app.post('/prenota', function(req, res) {
   const profession = req.body.profession;
 
   connection.query('SELECT * FROM User WHERE profession = ?', [profession], async function(error, results) {
@@ -169,17 +168,18 @@ app.post('/search-professionals', function(req, res) {
     try {
       console.log(results);
 
-      if (results == undefined) {
-        res.render('search-professionals', { professionals: [] });
-      } else {
-        res.render('search-professionals', { professionals: results });
+      if (!results || results.length === 0) {
+        return res.render('prenota', { professionals: [] });
       }
+
+      res.render('prenota', { professionals: results });
     } catch (error) {
       console.error('Si è verificato un errore durante la ricerca dei professionisti:', error);
       res.status(500).send('Si è verificato un errore durante la ricerca dei professionisti.');
     }
   });
 });
+
 
 
 /*
