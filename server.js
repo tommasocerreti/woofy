@@ -149,6 +149,7 @@ app.post('/login', function(req, res) {
 // RICERCA DEL PROFESSIONISTA NELLA PAGINA PRENOTA
 app.post('/prenota', function(req, res) {
   const profession = req.body.profession;
+  console.log('Valore profession:', profession);
 
   connection.query('SELECT * FROM User WHERE profession = ?', [profession], async function(error, results) {
     if (error) {
