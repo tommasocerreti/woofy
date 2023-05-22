@@ -20,7 +20,11 @@
       <a class="nav-item mx-3 fw-bold" href="/" target="_parent">Home</a>
       <a class="nav-item mx-3 fw-bold" href="/prenotazioni" target="_parent">Prenotazioni</a>
       <a class="nav-item mx-3 fw-bold" href="/prenota" target="_parent">Prenota</a>
-      <a class="nav-item mx-3 fw-bold" href="/login" target="_parent">Accedi</a>
+      <% if (loggedIn) { %>
+        <a class="nav-item mx-3 fw-bold" href="/logout">Disconnettiti</a>
+        <% } else { %>
+        <a class="nav-item mx-3 fw-bold" href="/login" target="_parent">Accedi</a>
+        <% } %>
     </div>
 
     <!-- HEADER -->

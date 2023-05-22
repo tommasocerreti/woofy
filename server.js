@@ -16,6 +16,25 @@ app.use(session({
   saveUninitialized: true
 }));
 
+// Middleware per il controllo di autenticazione
+function requireLogin(req, res, next) {
+  if (req.session.user) {
+    // L'utente è autenticato, procedi all'accesso alla pagina richiesta
+    next();
+  } else {
+    // L'utente non è autenticato, reindirizza a login
+    res.redirect('/login');
+  }
+}
+
+// Esempio di utilizzo del middleware per la protezione di una pagina
+app.get('/pagina-protetta', requireLogin, function(req, res) {
+  // La pagina protetta può essere accessibile solo se l'utente è autenticato
+  res.render('pagina-protetta');
+});
+
+
+
 // GESTIONE FILE STATICI
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(path.join(__dirname, "views")));
@@ -40,6 +59,31 @@ app.get('/', function(req, res) {
     // Utente non loggato
     res.render(path.join(__dirname, 'views', 'home', 'home.ejs'), { loggedIn: false });
   }
+});
+
+// IMPOSTAZIONE UTENTE LOGGATO + FUNZIONE LOGOUT
+app.get('/', function(req, res) {
+  const loggedIn = req.session.user ? true : false;
+  res.render(path.join(__dirname, 'views', 'home', 'home.ejs'), { loggedIn });
+});
+app.get('/prenotazioni', requireLogin, function(req, res) {
+  const loggedIn = req.session.user ? true : false;
+  res.render(path.join(__dirname, 'views', 'prenotazioni', 'prenotazioni.ejs'), { loggedIn });
+});
+app.get('/prenota', requireLogin, function(req, res) {
+  const loggedIn = req.session.user ? true : false;
+  res.render(path.join(__dirname, 'views', 'prenota', 'prenota.ejs'), { loggedIn });
+});
+app.get('/logout', function(req, res) {
+ req.session.destroy(function(err) {
+    if (err) {
+      console.error('Errore durante la distruzione della sessione:', err);
+      return res.status(500).send('Si è verificato un errore durante il logout.');
+    }
+
+    console.log('Logout effettuato con successo.');
+    res.redirect('/');
+  });
 });
 
 app.get('/prenotazioni', function(req, res) {
@@ -145,6 +189,7 @@ app.post('/login', function(req, res) {
     }
   });
 });
+
 
 
 // RICERCA DEL PROFESSIONISTA NELLA PAGINA PRENOTA
