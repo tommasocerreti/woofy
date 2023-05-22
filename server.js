@@ -51,25 +51,28 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // ROUTE
-app.get('/', function(req, res) {
-  if (req.session.user) {
-    // Utente loggato
-    res.render(path.join(__dirname, 'views', 'home', 'home.ejs'), { loggedIn: true });
-  } else {
-    // Utente non loggato
-    res.render(path.join(__dirname, 'views', 'home', 'home.ejs'), { loggedIn: false });
-  }
-});
+
+
 
 // IMPOSTAZIONE UTENTE LOGGATO + FUNZIONE LOGOUT
 app.get('/', function(req, res) {
   const loggedIn = req.session.user ? true : false;
-  res.render(path.join(__dirname, 'views', 'home', 'home.ejs'), { loggedIn });
+  let profession = null;
+  if (req.session.user && req.session.user.profession) {
+    profession = req.session.user.profession;
+  }
+  res.render(path.join(__dirname, 'views', 'home', 'home.ejs'), { loggedIn, profession });
 });
+
 app.get('/prenotazioni', requireLogin, function(req, res) {
   const loggedIn = req.session.user ? true : false;
-  res.render(path.join(__dirname, 'views', 'prenotazioni', 'prenotazioni.ejs'), { loggedIn });
+  let profession = null;
+  if (req.session.user && req.session.user.profession) {
+    profession = req.session.user.profession;
+  }
+  res.render(path.join(__dirname, 'views', 'prenotazioni', 'prenotazioni.ejs'), { loggedIn, profession });
 });
+
 app.get('/prenota', requireLogin, function(req, res) {
   const loggedIn = req.session.user ? true : false;
   res.render(path.join(__dirname, 'views', 'prenota', 'prenota.ejs'), { loggedIn });
