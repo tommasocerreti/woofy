@@ -216,7 +216,7 @@ body{
 }
 
 .custom-container2 {
-  --bs-gutter-x: 0rem; 
+  --bs-gutter-x: 0;
 }
 
 .user-btn{
@@ -282,6 +282,10 @@ footer ul li a:hover {
   min-height: 22.4rem;
  }
 
+
+/* @media query */
+
+
 @media (max-width: 1400px) {
   .my-button{
   width: 90px;
@@ -325,7 +329,7 @@ footer ul li a:hover {
    }
 }
 
-@media (max-width: 991px) { /* FIXARE DALLE ALLE */
+@media (max-width: 991px) { 
   .time-button {
     font-size: 13px;
     padding: 10px 20px;
@@ -340,6 +344,32 @@ footer ul li a:hover {
     .custom-dropdown{
       min-height: 29rem;
      }
+     .small-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Divide il contenitore in due colonne di larghezza uguale */
+      grid-template-rows: auto auto; /* Crea due righe di altezza automatica */
+    }
+    
+    .small-row .col:nth-child(1) {
+      grid-column: 1; /* Imposta la colonna del primo elemento nella prima colonna */
+      grid-row: 1; /* Imposta la riga del primo elemento nella prima riga */
+    }
+    
+    .small-row .col:nth-child(2) {
+      grid-column: 2; /* Imposta la colonna del secondo elemento nella seconda colonna */
+      grid-row: 1; /* Imposta la riga del secondo elemento nella prima riga */
+    }
+    
+    .small-row .col:nth-child(3) {
+      grid-column: 1; /* Imposta la colonna del terzo elemento nella prima colonna */
+      grid-row: 2; /* Imposta la riga del terzo elemento nella seconda riga */
+    }
+    
+    .small-row .col:nth-child(4) {
+      grid-column: 2; /* Imposta la colonna del quarto elemento nella seconda colonna */
+      grid-row: 2; /* Imposta la riga del quarto elemento nella seconda riga */
+    }
+    
     
   }
   @media (max-width: 767px) {
@@ -372,8 +402,11 @@ footer ul li a:hover {
     .custom-container3{
       max-width: 400px;
     }
+    .custom-dropdown{
+      min-height: 10.4rem;
+     }
     }
-    @media (max-width: 550px) { /* FIXARE DALLE ALLE */
+    @media (max-width: 550px) { 
       .custom-container4{
       max-width: 470px;
       }
@@ -391,6 +424,9 @@ footer ul li a:hover {
         }
         .custom-col{
           max-width: 67%;
-          
-        } 
+          } 
+          .custom-container2> * {
+            --bs-gutter-x: 0 !important;
+            
+          }
     } 
