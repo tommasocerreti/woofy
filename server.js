@@ -24,12 +24,6 @@ app.use(express.static(path.join(__dirname, "views")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//  CONFIGURAZIONE DEL MIDDLEWARE PER L'UTILIZZO DELLE SESSIONI E SPECIFICA UNA CHIAVE SEGRETA PER CRITTOGRAFARE I DATI DI SESSIONE
-app.use(session({
-  secret: 'segreto',
-  resave: false,
-  saveUninitialized: true
-}));
 
 // CONFIGURAZIONE DI ejs
 app.engine('ejs', require('ejs').__express);
@@ -39,8 +33,15 @@ app.set('views', path.join(__dirname, 'views'));
 
 // ROUTE
 app.get('/', function(req, res) {
-  res.render(path.join(__dirname, 'views', 'home', 'home.ejs'));
+  if (req.session.user) {
+    // Utente loggato
+    res.render(path.join(__dirname, 'views', 'home', 'home.ejs'), { loggedIn: true });
+  } else {
+    // Utente non loggato
+    res.render(path.join(__dirname, 'views', 'home', 'home.ejs'), { loggedIn: false });
+  }
 });
+
 app.get('/prenotazioni', function(req, res) {
   res.render(path.join(__dirname, 'views', 'prenotazioni', 'prenotazioni.ejs'));
 });

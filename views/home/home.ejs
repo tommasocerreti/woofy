@@ -27,6 +27,9 @@
     </div>
 
     <!-- INFO-BOX -->
+    <% if (loggedIn) { %>
+      <!-- Codice da eseguire se l'utente è loggato -->
+    
     <div class="container info-box small-info-box bg-light rounded-3 shadow d-flex align-items-center justify-content-center" style="width: 700px; height: 300px;">
       <div class="row">
 
@@ -42,6 +45,7 @@
       </div>
     </div>
   
+    <% } %>
 
     <!-- PULSANTI PRENOTAZIONE RAPIDA -->
     <div class="button-container">
