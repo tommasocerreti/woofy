@@ -6,12 +6,7 @@ const connection = require('./db');
 const bodyParser = require('body-parser');
 const validator = require('validator');
 const session = require('express-session');
-
-app.use(session({
-  secret: 'segreto',
-  resave: false,
-  saveUninitialized: true
-}));
+const handlebars = require('handlebars');
 
 
 // ROUTE
@@ -51,10 +46,17 @@ app.get('/bootstrap.min.js.map', function(req, res) {
 });
 
 
+
+// CONFIGURAZIONE DEL MIDDLEWARE DI SESSIONE IN EXPRESS
+app.use(session({
+  secret: 'segreto',
+  resave: false,
+  saveUninitialized: true
+}));
+
 // GESTIONE FILE STATICI
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, "public")));
-
 
 // CONFIGURAZIONE DI BODY PARSER
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -66,6 +68,12 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+
+// CONFIGURAZIONE DI ejs
+app.engine('ejs', require('ejs').__express);
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 
 
 // REGISTRAZIONE
@@ -142,6 +150,20 @@ app.post('/login', function(req, res) {
   });
 });
 
+
+// RICERCA DEL PROFESSIONISTA NELLA PAGINA PRENOTA
+app.post('/search-professionals', function(req, res) {
+  const profession = req.body.profession;
+
+  connection.query('SELECT * FROM User WHERE profession = ?', [profession], function(error, results) {
+    if (error) {
+      console.error('Errore durante la ricerca dei professionisti:', error);
+      return res.status(500).send('Si è verificato un errore durante la ricerca dei professionisti.');
+    }
+
+    res.render('search-professionals', { professionals: results });
+  });
+});
 
 
 // AVVIAMENTO SERVER

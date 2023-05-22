@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+      <% professionals.forEach(function(professional) { %>
+      <!-- BOX -->
+      <div class="container container-box rounded-3 my-4">
+        <div class="row d-flex justify-content-center align-items-center">
+          <!-- PICTURE -->
+          <div class="col my-2 mx-4">
+            <div class="picture">
+              <img src="../immagini/icone_professioni/parrucchiere_icon.png">
+            </div>
+          </div>
+          <!-- DESCRIPTION -->
+          <div class="col my-2 mx-4">
+            <div class="description">
+              <p class="name custom-text"><%= professional.name %></p>
+              <p class="location"><%= professional.city %>, <%= professional.address %></p>
+            </div>
+          </div>
+          <!-- COMBOBOXES -->
+          <div class="col my-2 mx-4">
+            <div class="comboboxes custom-combobox">
+              <select class="form-select" name="date">
+                <option selected disabled>Seleziona una data</option>
+                <option value="2023-05-15">15/05/2023</option>
+                <!-- altre opzioni da aggiungere -->
+              </select>
+  
+              <div class="my-3"></div>
+  
+              <select class="form-select" name="time">
+                <option selected disabled>Seleziona un orario</option>
+                <option value="9:00">9:00</option>
+                <!-- altre opzioni da aggiungere -->
+              </select>
+            </div>
+          </div>
+          <!-- BUTTON -->
+          <div class="col-md-auto my-2 mx-4">
+            <button class="book-btn btn btn-primary custom-btn">Prenota</button>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>

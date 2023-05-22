@@ -16,6 +16,8 @@
     "nodemailer": "^6.9.2",
     "mysql": "latest",
     "express-session": "latest",
-    "validator": "latest"
+    "validator": "latest",
+    "handlebars": "latest",
+    "ejs": "latest"
   }
 }
