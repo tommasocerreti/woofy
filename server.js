@@ -9,7 +9,31 @@ const session = require('express-session');
 const handlebars = require('handlebars');
 
 
-app.use(express.static('./views/prenota'));
+// CONFIGURAZIONE DEL MIDDLEWARE DI SESSIONE IN EXPRESS
+app.use(session({
+  secret: 'segreto',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// GESTIONE FILE STATICI
+app.use(express.static(__dirname + '/views'));
+app.use(express.static(path.join(__dirname, "views")));
+
+// CONFIGURAZIONE DI BODY PARSER
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+//  CONFIGURAZIONE DEL MIDDLEWARE PER L'UTILIZZO DELLE SESSIONI E SPECIFICA UNA CHIAVE SEGRETA PER CRITTOGRAFARE I DATI DI SESSIONE
+app.use(session({
+  secret: 'segreto',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// CONFIGURAZIONE DI ejs
+app.engine('ejs', require('ejs').__express);
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
@@ -45,36 +69,6 @@ app.get('/bootstrap.min.css.map', function(req, res) {
 app.get('/bootstrap.min.js.map', function(req, res) {
   res.sendFile(__dirname + '/node_modules/bootstrap/dist/js/bootstrap.min.js.map');
 });
-
-
-
-// CONFIGURAZIONE DEL MIDDLEWARE DI SESSIONE IN EXPRESS
-app.use(session({
-  secret: 'segreto',
-  resave: false,
-  saveUninitialized: true
-}));
-
-// GESTIONE FILE STATICI
-app.use(express.static(__dirname + '/views'));
-app.use(express.static(path.join(__dirname, "views")));
-
-// CONFIGURAZIONE DI BODY PARSER
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-//  CONFIGURAZIONE DEL MIDDLEWARE PER L'UTILIZZO DELLE SESSIONI E SPECIFICA UNA CHIAVE SEGRETA PER CRITTOGRAFARE I DATI DI SESSIONE
-app.use(session({
-  secret: 'segreto',
-  resave: false,
-  saveUninitialized: true
-}));
-
-// CONFIGURAZIONE DI ejs
-app.engine('ejs', require('ejs').__express);
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
 
 
 // REGISTRAZIONE
@@ -166,10 +160,10 @@ app.post('/prenota', function(req, res) {
       console.log(results);
 
       if (!results || results.length === 0) {
-        return res.render('prenota', { professionals: [] });
+        return res.render('prenota/prenota', { professionals: [] });
       }
 
-      res.render('prenota', { professionals: results });
+      res.render('prenota/prenota', { professionals: results });
     } catch (error) {
       console.error('Si è verificato un errore durante la ricerca dei professionisti:', error);
       res.status(500).send('Si è verificato un errore durante la ricerca dei professionisti.');
