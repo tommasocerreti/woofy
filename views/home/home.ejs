@@ -24,21 +24,21 @@
     <!-- HEADER -->
     <div class="header-container d-flex flex-column align-items-center mt-5">
       <h1 class="text-light display-1 fw-bold">Woofy</h1>
-      <p class="text-light display-6">La soluzione perfetta per le tue esigenze di prenotazione</p>
+      <p class="text-light text-scale display-6">La soluzione perfetta per le tue esigenze di prenotazione</p>
     </div>
 
     <!-- INFO-BOX -->
     <% if (loggedIn) { %>
       <!-- Codice da eseguire se l'utente è loggato -->
-      <div class="container info-box small-info-box bg-light rounded-3 shadow d-flex align-items-center justify-content-center" style="width: 700px; height: 300px;">
+      <div class="container info-box small-info-box bg-light rounded-3">
         <div class="row">
 
-            <div class="col-8 info-text d-flex flex-column justify-content-center align-items-center" style="width: 500px; height: 300px;">
-              <p class="fs-4 fw-bold">Prossimo appuntamento tra: 01:01</p>
-              <p class="fs-5">Con Tiziano a Via Scarpa</p>
+            <div class="col-8 info-text d-flex flex-column justify-content-center align-items-center">
+              <p class="fw-bold text-lil">Prossimo appuntamento tra: 01:01</p>
+              <p class="text-lil">Con Tiziano a Via Scarpa</p>
             </div>
 
-            <div class="col-4 info-img d-flex justify-content-center align-items-end" style="width: 200px; height: 300px;">
+            <div class="col-4 info-img d-flex justify-content-center align-items-end">
               <img src="../immagini/omino_home.png" alt="Descrizione immagine" class="img-fluid">
             </div>
 
@@ -50,25 +50,25 @@
     <div class="button-container">
       <div class="row"> <!-- RIGA 1 -->
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Architetto">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Architetto">
             <img src="../immagini/icone_professioni/architetto_icon.png">
             <span>Architetto</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Avvocato">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Avvocato">
             <img src="../immagini/icone_professioni/avvocato_icon.png">
             <span>Avvocato</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Commercialista">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Commercialista">
             <img src="../immagini/icone_professioni/commercialista_icon.png">
             <span>Commercialista</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Consulente IT">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Consulente IT">
             <img src="../immagini/icone_professioni/consulente_informatico_icon.png">
             <span>Consulente IT</span>
           </a>
@@ -76,25 +76,25 @@
       </div>
       <div class="row"> <!-- RIGA 2 -->
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Dentista">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Dentista">
             <img src="../immagini/icone_professioni/dentista_icon.png">
             <span>Dentista</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Designer d'Interni">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Designer d'Interni">
             <img src="../immagini/icone_professioni/designer_interni_icon.png">
             <span>Designer d'Interni</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Elettricista">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Elettricista">
             <img src="../immagini/icone_professioni/elettricista_icon.png">
             <span>Elettricista</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Estetista">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Estetista">
             <img src="../immagini/icone_professioni/estetista_icon.png">
             <span>Estetista</span>
           </a>
@@ -102,25 +102,25 @@
       </div>
       <div class="row"> <!-- RIGA 3 -->
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Fisioterapista">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Fisioterapista">
             <img src="../immagini/icone_professioni/fisioterapista_icon.png">
             <span>Fisioterapista</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Fotografo">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Fotografo">
             <img src="../immagini/icone_professioni/fotografo_icon.png">
             <span>Fotografo</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Idraulico">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Idraulico">
             <img src="../immagini/icone_professioni/idraulico_icon.png">
             <span>Idraulico</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Medico">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Medico">
             <img src="../immagini/icone_professioni/medico_icon.png">
             <span>Medico</span>
           </a>
@@ -128,25 +128,25 @@
       </div>
       <div class="row"> <!-- RIGA 4 -->
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Notaio">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Notaio">
             <img src="../immagini/icone_professioni/notaio_icon.png">
             <span>Notaio</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Nutrizionista">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Nutrizionista">
             <img src="../immagini/icone_professioni/nutrizionista_icon.png">
             <span>Nutrizionista</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Osteopata">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Osteopata">
             <img src="../immagini/icone_professioni/osteopata_icon.png">
             <span>Osteopata</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Parrucchiere">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Parrucchiere">
             <img src="../immagini/icone_professioni/parrucchiere_icon.png">
             <span>Parrucchiere</span>
           </a>
@@ -154,25 +154,25 @@
       </div>
       <div class="row"> <!-- RIGA 5 -->
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Psicologo">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Psicologo">
             <img src="../immagini/icone_professioni/psicologo_icon.png">
             <span>Psicologo</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Sarto">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Sarto">
             <img src="../immagini/icone_professioni/sarto_icon.png">
             <span>Sarto</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Tatuatore">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Tatuatore">
             <img src="../immagini/icone_professioni/tatuatore_icon.png">
             <span>Tatuatore</span>
           </a>
         </div>
         <div class="col-sm-3">
-          <a class="my-button rounded-3 shadow" data-professione="Veterinario">
+          <a class="my-button rounded-3 shadow <% if (!loggedIn) { %>disabled<% } %>" data-professione="Veterinario">
             <img src="../immagini/icone_professioni/veterinario_icon.png">
             <span>Veterinario</span>
           </a>
@@ -196,7 +196,6 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/bootstrap.bundle.min.js"></script>
-    <script src="/prenotazioni/script.js"></script>
     <script src="/home/script.js"></script>
     
   </body>
