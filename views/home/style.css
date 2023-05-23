@@ -149,6 +149,10 @@ footer ul li a {
 footer ul li a:hover {
   color: #ffffff;
 }
+.text-lil {
+  font-size: 25px; /* Imposta la dimensione del testo a 14 pixel */
+}
+
 
 @media (max-width: 950px){
   .text-scale{
@@ -156,7 +160,9 @@ footer ul li a:hover {
   }
 }
 @media (max-width:750px){
-  .info-box{}
+  .text-lil{
+    font-size:18px;
+  }
 }
 
 @media (max-width: 580px){
