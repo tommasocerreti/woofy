@@ -149,3 +149,34 @@ footer ul li a {
 footer ul li a:hover {
   color: #ffffff;
 }
+
+.text-lil {
+  font-size: 25px; /* Imposta la dimensione del testo a 14 pixel */
+}
+
+
+@media (max-width: 950px){
+  .text-scale{
+    font-size: 1.3rem;
+  }
+}
+@media (max-width:750px){
+  .text-lil{
+    font-size:18px;
+  }
+}
+
+@media (max-width: 580px){
+  .col-sm-3{
+    flex: 0 0 auto;
+    width: 20%;
+    box-sizing: content-box;
+  }
+  .my-button{
+    width: 100px;
+    height: 100px;
+  }
+  .text-scale{
+    font-size: 1.2rem;
+  }
+}
