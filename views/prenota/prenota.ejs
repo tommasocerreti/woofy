@@ -53,7 +53,7 @@
             <!-- DESCRIPTION -->
             <div class="col my-2 mx-4">
               <div class="description">
-                <p class="name custom-text"><p class="name custom-text"><%= professional.firstName.charAt(0).toUpperCase() + professional.firstName.slice(1) %> <%= professional.secondName.charAt(0).toUpperCase() + professional.secondName.slice(1) %></p>
+                <p class="name custom-text"><p class="name custom-text"> <%= professional.id %>: <%= professional.firstName.charAt(0).toUpperCase() + professional.firstName.slice(1) %> <%= professional.secondName.charAt(0).toUpperCase() + professional.secondName.slice(1) %></p>
                 <p class="location"><p class="location"><%= professional.city.charAt(0).toUpperCase() + professional.city.slice(1) %>, <%= professional.address.charAt(0).toUpperCase() + professional.address.slice(1) %></p>
 
               </div>
@@ -61,27 +61,37 @@
             <!-- COMBOBOXES -->
             <div class="col my-2 mx-4">
               <div class="comboboxes custom-combobox">
-                <select class="form-select" name="date">
-                  <option selected disabled>Seleziona una data</option>
-                  <option value="2023-05-15">15/05/2023</option>
-                  <!-- altre opzioni da aggiungere -->
-                </select>
-    
+                <form>
+                <input type="string" name="date" placeholder="           gg / mm / yyyy" required>
+               
                 <div class="my-3"></div>
     
                 <select class="form-select" name="time">
                   <option selected disabled>Seleziona un orario</option>
-                  <option value="9:00">9:00</option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
                   <!-- altre opzioni da aggiungere -->
                 </select>
               </div>
             </div>
             <!-- BUTTON -->
             <div class="col-md-auto my-2 mx-4">
-              <button class="book-btn btn btn-primary custom-btn">Prenota</button>
+              <button id="prenota-btn" class="book-btn btn btn-primary custom-btn">Prenota</button>
             </div>
           </div>
         </div>
+      </form>
 
         <% }) } else { %>
   
