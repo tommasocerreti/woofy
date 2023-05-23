@@ -208,6 +208,32 @@ app.post('/login', function(req, res) {
   });
 });
 
+// RICERCA DEL PROFESSIONISTA NELLA PAGINA PRENOTA
+app.post('/prenota', function(req, res) {
+  const profession = req.body.profession;
+  console.log('Valore profession:', profession);
+
+  connection.query('SELECT * FROM User WHERE profession = ?', [profession], async function(error, results) {
+    if (error) {
+      console.error('Errore durante la ricerca dei professionisti:', error);
+      return res.status(500).send('Si è verificato un errore durante la ricerca dei professionisti.');
+    }
+
+    try {
+      console.log(results);
+
+      if (!results || results.length === 0) {
+        return res.render('prenota/prenota', { professionals: [], professione: profession });
+      }
+
+      res.render('prenota/prenota', { professionals: results, professione: profession });
+    } catch (error) {
+      console.error('Si è verificato un errore durante la ricerca dei professionisti:', error);
+      res.status(500).send('Si è verificato un errore durante la ricerca dei professionisti.');
+    }
+  });
+});
+
 // INSERIMENTO ORARI DISPONIBILI
 app.post('/save-working-hours', (req, res) => {
   const userId = req.cookies['userID']; // Assuming you have the authenticated user's ID
