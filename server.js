@@ -208,8 +208,7 @@ app.post('/login', function(req, res) {
   });
 });
 
-
-// RICERCA DEL  PROFESSIONISTA NELLA PAGINA PRENOTA
+// INSERIMENTO ORARI DISPONIBILI
 app.post('/save-working-hours', (req, res) => {
   const userId = req.cookies['userID']; // Assuming you have the authenticated user's ID
   const startFields = ['start_mon', 'start_tue', 'start_wed', 'start_thu', 'start_fri', 'start_sat', 'start_sun'];
@@ -217,42 +216,86 @@ app.post('/save-working-hours', (req, res) => {
 
   const selectedDays = req.body; // Array of selected days
 
-  let query = 'INSERT INTO working_hours (user_id';
-  let values = [userId];
-
-  for (let i = 0; i < startFields.length; i++) {
-    const startField = startFields[i];
-    const finishField = finishFields[i];
-
-    const selectedDay = selectedDays.find(day => day.day === startField.replace('start_', ''));
-    if (selectedDay) {
-      const { start, end } = selectedDay;
-      query += `, ${startField}, ${finishField}`;
-      values.push(start, end);
-    } else {
-      query += `, ${startField}, ${finishField}`;
-      values.push(null, null);
-    }
-  }
-
-  query += ') VALUES (?';
-  for (let i = 0; i < startFields.length * 2; i++) {
-    query += ', ?';
-  }
-  query += ')';
-
-  // Esegui la query
-  connection.query(query, values, (error, results) => {
+  // Check if a row exists for the user
+  connection.query('SELECT * FROM working_hours WHERE user_id = ?', [userId], (error, results) => {
     if (error) {
-      console.error('Errore durante l\'inserimento delle ore lavorative:', error);
-      res.status(500).json({ error: 'Si è verificato un errore durante il salvataggio delle ore lavorative.' });
+      console.error('Errore durante la ricerca delle ore lavorative:', error);
+      res.status(500).json({ error: 'Si è verificato un errore durante la ricerca delle ore lavorative.' });
     } else {
-      console.log('Ore lavorative salvate con successo.');
-      res.status(200).json({ success: true });
+      if (results.length > 0) {
+        // A row already exists for the user, perform an UPDATE
+        let query = 'UPDATE working_hours SET ';
+        let values = [];
+
+        for (let i = 0; i < startFields.length; i++) {
+          const startField = startFields[i];
+          const finishField = finishFields[i];
+
+          const selectedDay = selectedDays.find(day => day.day === startField.replace('start_', ''));
+          if (selectedDay) {
+            const { start, end } = selectedDay;
+            query += `${startField} = ?, ${finishField} = ?, `;
+            values.push(start, end);
+          } else {
+            query += `${startField} = ?, ${finishField} = ?, `;
+            values.push(null, null);
+          }
+        }
+
+        query = query.slice(0, -2); // Remove the extra comma and space at the end
+        query += ' WHERE user_id = ?';
+        values.push(userId);
+
+        // Execute the UPDATE query
+        connection.query(query, values, (error, results) => {
+          if (error) {
+            console.error('Errore durante l\'aggiornamento delle ore lavorative:', error);
+            res.status(500).json({ error: 'Si è verificato un errore durante l\'aggiornamento delle ore lavorative.' });
+          } else {
+            console.log('Ore lavorative aggiornate con successo.');
+            res.status(200).json({ success: true });
+          }
+        });
+      } else {
+        // No row exists for the user, perform an INSERT INTO
+        let query = 'INSERT INTO working_hours (user_id';
+        let values = [userId];
+
+        for (let i = 0; i < startFields.length; i++) {
+          const startField = startFields[i];
+          const finishField = finishFields[i];
+
+          const selectedDay = selectedDays.find(day => day.day === startField.replace('start_', ''));
+          if (selectedDay) {
+            const { start, end } = selectedDay;
+            query += `, ${startField}, ${finishField}`;
+            values.push(start, end);
+          } else {
+            query += `, ${startField}, ${finishField}`;
+            values.push(null, null);
+          }
+        }
+
+        query += ') VALUES (?';
+        for (let i = 0; i < startFields.length * 2; i++) {
+          query += ', ?';
+        }
+        query += ')';
+
+        // Execute the INSERT INTO query
+        connection.query(query, values, (error, results) => {
+          if (error) {
+            console.error('Errore durante l\'inserimento delle ore lavorative:', error);
+            res.status(500).json({ error: 'Si è verificato un errore durante il salvataggio delle ore lavorative.' });
+          } else {
+            console.log('Ore lavorative salvate con successo.');
+            res.status(200).json({ success: true });
+          }
+        });
+      }
     }
   });
 });
-
 
 
 
