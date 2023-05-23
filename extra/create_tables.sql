@@ -14,9 +14,20 @@ CREATE TABLE user (
 CREATE TABLE working_hours (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
-  week_day VARCHAR(255),
-  start TIME,
-  finish TIME
+ `start_mon` TIME,
+ `finish_mon` TIME,
+ `start_tue` TIME,
+ `finish_tue` TIME,
+ `start_wed` TIME,
+ `finish_wed` TIME,
+ `start_thu` TIME,
+ `finish_thu` TIME,
+ `start_fri` TIME,
+ `finish_fri` TIME,
+ `start_sat` TIME,
+ `finish_sat` TIME,
+ `start_sun` TIME,
+ `finish_sun` TIME
 );
 
 -- Creazione della tabella "booking"
