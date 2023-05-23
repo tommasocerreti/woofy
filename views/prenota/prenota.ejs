@@ -35,13 +35,17 @@
     </div>
 
     <div class="container">
+
       <div class="row">
+
         <% if (typeof professionals !== 'undefined' && professionals.length > 0) {
           professionals.forEach(function(professional) { %>
   
         <!-- BOX -->
         <div class="container container-box rounded-3 my-4">
+
           <div class="row d-flex justify-content-center align-items-center">
+
             <!-- PICTURE -->
             <div class="col my-2 mx-4">
               <div class="picture">
@@ -50,48 +54,55 @@
               </div>
             </div>
             
-            <!-- DESCRIPTION -->
-            <div class="col my-2 mx-4">
-              <div class="description">
-                <p class="name custom-text"><p class="name custom-text"> <%= professional.id %>: <%= professional.firstName.charAt(0).toUpperCase() + professional.firstName.slice(1) %> <%= professional.secondName.charAt(0).toUpperCase() + professional.secondName.slice(1) %></p>
-                <p class="location"><p class="location"><%= professional.city.charAt(0).toUpperCase() + professional.city.slice(1) %>, <%= professional.address.charAt(0).toUpperCase() + professional.address.slice(1) %></p>
+            
+
+              <!-- DESCRIPTION -->
+              <div class="col my-2 mx-4">
+                <div class="description">
+                  <p class="name custom-text"><p class="name custom-text"> <%= professional.id %>: <%= professional.firstName.charAt(0).toUpperCase() + professional.firstName.slice(1) %> <%= professional.secondName.charAt(0).toUpperCase() + professional.secondName.slice(1) %></p>
+                  <p class="location"><p class="location"><%= professional.city.charAt(0).toUpperCase() + professional.city.slice(1) %>, <%= professional.address.charAt(0).toUpperCase() + professional.address.slice(1) %></p>
+
+                </div>
+              </div>
+
+              <!-- COMBOBOXES -->
+              <div class="col my-2 mx-4">
+
+                <div class="comboboxes custom-combobox">
+
+                  <input type="text" name="date" placeholder="           gg / mm / yyyy" required>
+                
+                  <div class="my-3"></div> <!-- Spazio tra i due box -->
+      
+                  <select class="form-select" name="time" required>
+                    <option selected disabled>Seleziona un orario</option>
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                  </select>
+
+                </div>
 
               </div>
-            </div>
-            <!-- COMBOBOXES -->
-            <div class="col my-2 mx-4">
-              <div class="comboboxes custom-combobox">
-                <form>
-                <input type="string" name="date" placeholder="           gg / mm / yyyy" required>
-               
-                <div class="my-3"></div>
-    
-                <select class="form-select" name="time">
-                  <option selected disabled>Seleziona un orario</option>
-                  <option value="08:00">08:00</option>
-                  <option value="09:00">09:00</option>
-                  <option value="10:00">10:00</option>
-                  <option value="11:00">11:00</option>
-                  <option value="12:00">12:00</option>
-                  <option value="13:00">13:00</option>
-                  <option value="14:00">14:00</option>
-                  <option value="15:00">15:00</option>
-                  <option value="16:00">16:00</option>
-                  <option value="17:00">17:00</option>
-                  <option value="18:00">18:00</option>
-                  <option value="19:00">19:00</option>
-                  <option value="20:00">20:00</option>
-                  <!-- altre opzioni da aggiungere -->
-                </select>
-              </div>
-            </div>
+
             <!-- BUTTON -->
             <div class="col-md-auto my-2 mx-4">
-              <button id="prenota-btn" class="book-btn btn btn-primary custom-btn">Prenota</button>
+              <button data-professional-id="<%= professional.id %>" class="book-btn btn btn-primary custom-btn">Prenota</button>
             </div>
+
           </div>
+
         </div>
-      </form>
 
         <% }) } else { %>
   
@@ -102,6 +113,7 @@
         <% } %>
 
       </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

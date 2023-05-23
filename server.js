@@ -323,6 +323,20 @@ app.post('/save-working-hours', (req, res) => {
   });
 });
 
+// PRENOTAZIONE
+app.post("/api/prenota", (req, res) => {
+  // Ottenere i dati inviati dal client
+  const data = req.body;
+
+  // Effettua il log dei dati nel terminale
+  console.log("Dati ricevuti dal client:", data);
+
+  // Restituisci una risposta al client o esegui altre operazioni
+  // ...
+
+  // Esempio di invio di una risposta di conferma al client
+  res.status(200).json({ message: "Prenotazione effettuata con successo!" });
+});
 
 
 
