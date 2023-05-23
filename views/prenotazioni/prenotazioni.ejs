@@ -15,13 +15,13 @@
   </head>
 
   <body>
-    <!-- NAVBAR -->
-    <div class="navbar justify-content-center align-items-center">
-      <a class="nav-item mx-3 fw-bold" href="/" target="_parent">Home</a>
-      <a class="nav-item mx-3 fw-bold" href="/prenotazioni" target="_parent">Prenotazioni</a>
-      <a class="nav-item mx-3 fw-bold" href="/prenota" target="_parent">Prenota</a>
-        <a class="nav-item mx-3 fw-bold" href="/logout">Disconnettiti</a>
-    </div>
+   <!-- NAVBAR -->
+   <div class="navbar justify-content-center align-items-center">
+    <a class="nav-item mx-3 fw-bold" href="/" target="_parent">Home</a>
+    <a class="nav-item mx-3 fw-bold" href="/prenotazioni" target="_parent">Prenotazioni</a>
+    <a class="nav-item mx-3 fw-bold" href="/prenota" target="_parent">Prenota</a>
+      <a class="nav-item mx-3 fw-bold" href="/logout">Disconnettiti</a>
+  </div>
 
     <!-- HEADER -->
     <div class="header-container d-flex flex-column align-items-center mt-5">
@@ -30,40 +30,40 @@
     <% if (profession !== null) { %>
     <!-- TIME BOX -->
     <div class="container custom-container2">
-      <div class="row">
+      <div class="row timebox-row">
         <div class="col">
-          <div class="container bg-white rounded-3 p-3 mt-2">
+          <div class="container custom-container3 bg-white rounded-3 p-3 mt-2">
             <!-- Scelta orari: -->
-            <h3 class="d-flex justify-content-center align-items-center mb-3">Seleziona i giorni della settimana:</h3>
-            <div class="row mx-4 mb-3">
+            <h3 class=" small-text d-flex justify-content-center align-items-center mb-3">Seleziona i giorni della settimana:</h3>
+            <div class="row mx-4 mb-3 custom-row">
               <div class="col">
-                <button class="btn btn-primary btn-lg custom-btn">Lun</button>
+                <button class="btn btn-primary custom-btn time-button">Lun</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary btn-lg custom-btn">Mar</button>
+                <button class="btn btn-primary custom-btn time-button">Mar</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary btn-lg custom-btn">Mer</button>
+                <button class="btn btn-primary custom-btn time-button">Mer</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary btn-lg custom-btn">Gio</button>
+                <button class="btn btn-primary custom-btn time-button">Gio</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary btn-lg custom-btn">Ven</button>
+                <button class="btn btn-primary custom-btn time-button">Ven</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary btn-lg custom-btn">Sab</button>
+                <button class="btn btn-primary custom-btn time-button">Sab</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary btn-lg custom-btn">Dom</button>
+                <button class="btn btn-primary custom-btn time-button">Dom</button>
               </div>
             </div>
-            <h3 class="d-flex justify-content-center align-items-center mb-3">Imposta gli orari:</h3>
-            <div class="row mx-4">
+            <h3 class="small-text d-flex justify-content-center align-items-center mb-3">Imposta gli orari:</h3>
+            <div class="row small-row mx-4">
               <div class="col mt-1">
-            <h4 class="d-flex justify-content-center align-items-center mb-3">Dalle</h4>
+              <h4 class="small-text d-flex justify-content-center align-items-center mb-3">Dalle</h4>
             </div>
-            <div class="col">
+            <div class="col custom-col">
               <select class="form-select w-auto mx-2 mt-auto">
                 <option disabled selected>--</option>
                 <option value="08:00">08:00</option>
@@ -81,34 +81,34 @@
                 <option value="20:00">20:00</option>
               </select>
             </div>
-            <div class="col mb-2 mt-1">
-            <h4 class="d-flex justify-content-center align-items-center mb-3">alle</h4>
-            </div>
-            <div class="col">
-              <select class="form-select w-auto mx-2 mt-auto">
-                <option disabled selected>--</option>
-                <option value="08:00">08:00</option>
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
-                <option value="18:00">18:00</option>
-                <option value="19:00">19:00</option>
-                <option value="20:00">20:00</option>
-              </select>
-            </div>
-          </div>
-          <h3 class="d-flex justify-content-center align-items-center mb-3">Imposta la pausa:</h3>
-          <div class="row mx-4">
             <div class="col mt-1">
-            <h4 class="d-flex justify-content-center align-items-center mb-3">Dalle</h4>
+            <h4 class="small-text d-flex justify-content-center align-items-center mb-3">alle</h4>
+            </div>
+            <div class="col mb-3">
+              <select class="form-select w-auto mx-2 mt-auto">
+                <option disabled selected>--</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+              </select>
+            </div>
           </div>
-          <div class="col">
+          <h3 class="small-text d-flex justify-content-center align-items-center mb-3">Imposta la pausa:</h3>
+          <div class="row small-row mx-4">
+            <div class="col mt-1">
+            <h4 class="small-text d-flex justify-content-center align-items-center mb-3">Dalle</h4>
+          </div>
+          <div class="col custom-col">
             <select class="form-select w-auto mx-2 mt-auto">
               <option disabled selected>--</option>
               <option value="08:00">08:00</option>
@@ -127,7 +127,7 @@
             </select>
           </div>
           <div class="col mt-1">
-          <h4 class="d-flex justify-content-center align-items-center mb-3">alle</h4>
+          <h4 class="small-text d-flex justify-content-center align-items-center mb-3">alle</h4>
           </div>
           <div class="col mb-3">
             <select class="form-select w-auto mx-2 mt-auto">
@@ -150,10 +150,10 @@
         </div>
             </div>
           </div>
-        <div class="col-md-4 p-2">
+        <div class="col p-2">
             <!-- Secondo container -->
             <!-- CALENDAR === CODICE PLACE HOLDER COPIATO E INCOLLATO DA BOOTSTRAP - FRECCE MANCANTI === -->
-            <div class="dropdown-menu d-block position-static d-flex flex-column align-items-stretch p-2 mx-0 shadow rounded-3" data-bs-theme="white">
+            <div class="dropdown-menu custom-dropdown d-block position-static d-flex flex-column align-items-stretch p-2 mx-0 shadow rounded-3" data-bs-theme="white">
               <div class="d-grid gap-1">
                 <div class="cal">
                   <div class="cal-month">
@@ -236,8 +236,9 @@
     </div>
     
 
+
     <!-- ULTIME 2 PRENOTAZIONI -->
-    <div class="container custom-container bg-white mt-5 shadow rounded-3 d-block position-static d-flex flex-column">
+    <div class="container custom-container4 bg-white mt-5 shadow rounded-3 d-block position-static d-flex flex-column">
       <div class="row">
         <div class="col">
           <!-- Contenuto header -->
@@ -247,130 +248,130 @@
       <div class="row mt-2 d-flex ">
         <div class="col d-flex justify-content-between align-items-center">
           <!-- PICTURE -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-2">
-            <div class="picture">
-              <img src="../immagini/icone_professioni/parrucchiere_icon.png" class="img-fluid w-55 h-55">
+          <div class="col-auto d-flex justify-content-center align-items-center my-2">
+            <div class="picture custom-pic">
+              <img src="../immagini/icone_professioni/parrucchiere_icon.png">
             </div>
           </div>
           <!-- DESCRIPTION -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
+          <div class="col-auto d-flex justify-content-center align-items-center my-2 ">
             <div class="description">
               <p class="name"> Nome Professionista</p>
               <p class="location">Città, indirizzo</p>
             </div>
           </div>
           <!-- DATA -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
+          <div class="col-auto d-flex justify-content-center align-items-center my-2">
             <div class="description">
               <p class="name"> Data</p>
               <p class="location">Ora</p>
             </div>
           </div>
           <!-- BUTTON -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
-            <button class="book-btn btn btn-primary custom-btn"style="width:300px;">Prenota</button>
+          <div class="col-auto d-flex justify-content-center align-items-center my-2">
+            <button class="book-btn btn btn-primary custom-btn last-button">Prenota</button>
           </div>
         </div>
       </div>
-      <div class="row mt-2 mb-3  d-flex ">
+      <div class="row mt-2 d-flex ">
         <div class="col d-flex justify-content-between align-items-center">
           <!-- PICTURE -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-2">
-            <div class="picture">
-              <img src="../immagini/icone_professioni/parrucchiere_icon.png" class="img-fluid w-55 h-55">
+          <div class="col-auto d-flex justify-content-center align-items-center my-2">
+            <div class="picture custom-pic">
+              <img src="../immagini/icone_professioni/parrucchiere_icon.png">
             </div>
           </div>
           <!-- DESCRIPTION -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
+          <div class="col-auto d-flex justify-content-center align-items-center my-2 ">
             <div class="description">
               <p class="name"> Nome Professionista</p>
               <p class="location">Città, indirizzo</p>
             </div>
           </div>
           <!-- DATA -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
+          <div class="col-auto d-flex justify-content-center align-items-center my-2">
             <div class="description">
               <p class="name"> Data</p>
               <p class="location">Ora</p>
             </div>
           </div>
           <!-- BUTTON -->
-          <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3" style="width:300px;">
-            <button class="book-btn btn btn-primary custom-btn"style="width:300px;">Prenota</button>
+          <div class="col-auto d-flex justify-content-center align-items-center my-2">
+            <button class="book-btn btn btn-primary custom-btn last-button">Prenota</button>
           </div>
         </div>
       </div>
     </div>
     <% } else { %>
-      
-    <!-- VERSIONE UTENTE -->
+     
+<!-- VERSIONE UTENTE -->
   <div class="container custom-container2">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="container bg-white rounded-3 p-2 mt-2">
+    <div class="row timebox-row">
+      <div class="col">
+        <div class="container custom-container2 bg-white rounded-3 p-2 mt-2">
           <h3 class="d-flex justify-content-center align-items-center mb-3">Le tue ultime prenotazioni:</h3>
           <div class="row mt-2 d-flex ">
             <div class="col d-flex justify-content-between align-items-center">
               <!-- PICTURE -->
-              <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-2">
-                <div class="picture">
-                  <img src="../immagini/icone_professioni/parrucchiere_icon.png" class="img-fluid w-55 h-55">
+              <div class="col d-flex justify-content-center align-items-center my-2 mx-2">
+                <div class="picture custom-pic">
+                  <img src="../immagini/icone_professioni/parrucchiere_icon.png">
                 </div>
               </div>
               <!-- DESCRIPTION -->
-              <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
-                <div class="description">
+              <div class="col d-flex justify-content-center align-items-center my-2 mx-3">
+                <div class="description mt-2">
                   <p class="name"> Nome Professionista</p>
                   <p class="location">Città, indirizzo</p>
                 </div>
               </div>
               <!-- DATA -->
-              <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
+              <div class="col d-flex justify-content-center align-items-center my-2 mx-3">
                 <div class="description">
                   <p class="name"> Data</p>
                   <p class="location">Ora</p>
                 </div>
               </div>
               <!-- BUTTON -->
-              <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
-                <button class="book-btn btn btn-primary custom-btn"style="width:300px;">Prenota</button>
+              <div class="col d-flex justify-content-center align-items-center my-2 mx-3">
+                <button class="book-btn btn btn-primary custom-btn user-btn last-button">Prenota</button>
               </div>
             </div>
           </div>
-        <div class="row mt-2 d-flex ">
-          <div class="col d-flex justify-content-between align-items-center">
-            <!-- PICTURE -->
-            <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-2">
-              <div class="picture">
-                <img src="../immagini/icone_professioni/parrucchiere_icon.png" class="img-fluid w-55 h-55">
+          <div class="row mt-2 d-flex ">
+            <div class="col d-flex justify-content-between align-items-center">
+              <!-- PICTURE -->
+              <div class="col d-flex justify-content-center align-items-center my-2 mx-2">
+                <div class="picture custom-pic">
+                  <img src="../immagini/icone_professioni/parrucchiere_icon.png">
+                </div>
+              </div>
+              <!-- DESCRIPTION -->
+              <div class="col d-flex justify-content-center align-items-center my-2 mx-3">
+                <div class="description mt-2">
+                  <p class="name"> Nome Professionista</p>
+                  <p class="location">Città, indirizzo</p>
+                </div>
+              </div>
+              <!-- DATA -->
+              <div class="col d-flex justify-content-center align-items-center my-2 mx-3">
+                <div class="description">
+                  <p class="name"> Data</p>
+                  <p class="location">Ora</p>
+                </div>
+              </div>
+              <!-- BUTTON -->
+              <div class="col d-flex justify-content-center align-items-center my-2 mx-3">
+                <button class="book-btn btn btn-primary custom-btn user-btn last-button">Prenota</button>
               </div>
             </div>
-            <!-- DESCRIPTION -->
-            <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
-              <div class="description">
-                <p class="name"> Nome Professionista</p>
-                <p class="location">Città, indirizzo</p>
-              </div>
-            </div>
-            <!-- DATA -->
-            <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
-              <div class="description">
-                <p class="name"> Data</p>
-                <p class="location">Ora</p>
-              </div>
-            </div>
-            <!-- BUTTON -->
-            <div class="col-md-auto d-flex justify-content-center align-items-center my-2 mx-3">
-              <button class="book-btn btn btn-primary custom-btn"style="width:300px;">Prenota</button>
-            </div>
+          </div>
           </div>
         </div>
-          </div>
-        </div>
-      <div class="col-md-4 p-2">
+      <div class="col p-2">
           <!-- Secondo container -->
           <!-- CALENDAR === CODICE PLACE HOLDER COPIATO E INCOLLATO DA BOOTSTRAP - FRECCE MANCANTI === -->
-          <div class="dropdown-menu d-block position-static d-flex flex-column align-items-stretch p-2 mx-0 shadow rounded-3" data-bs-theme="white">
+          <div class="dropdown-menu d-block position-static d-flex flex-column align-items-stretch p-3 mx-0 shadow rounded-3" data-bs-theme="white">
             <div class="d-grid gap-1">
               <div class="cal">
                 <div class="cal-month">
@@ -451,98 +452,92 @@
       </div>
     </div>
   </div>
-    
-    
-    
-    
-      <% } %>
-    
-
-     <!-- I TUOI PROSSIMI APPUNTAMENTI -->
-     <div class="container custom-container bg-white mt-5 shadow rounded-3 d-block position-static d-flex flex-column">
-      <!--IMMINENTE -->
-      <div class="row">
-        <div class="col">
-          <!-- Contenuto header -->
-          <h2 class="d-flex justify-content-center align-items-center mt-1">I tuoi prossimi appuntamenti</h2>
-        </div>
+  <% } %>
+  <!-- I TUOI PROSSIMI APPUNTAMENTI -->
+  <div class="container  custom-container2 bg-white mt-5 shadow rounded-3 d-block position-static d-flex flex-column">
+    <!--IMMINENTE -->
+    <div class="row">
+      <div class="col">
+        <!-- Contenuto header -->
+        <h2 class="d-flex justify-content-center align-items-center mt-1">I tuoi prossimi appuntamenti</h2>
       </div>
-      <div class="row mt-2 d-flex ">
-        <div class="col d-flex justify-content-between align-items-center">
-          <!-- PICTURE -->
-          <div class="col-md-3 d-flex">
-            <div class="picture">
-              <img src="../immagini/icone_professioni/parrucchiere_icon.png" class="img-fluid w-55 h-55">
-            </div>
+    </div>
+    <div class="row mt-2 d-flex ">
+      <div class="col d-flex justify-content-between align-items-center">
+        <!-- PICTURE -->
+        <div class="col-3 d-flex justify-content-center">
+          <div class="picture custom-pic">
+            <img src="../immagini/icone_professioni/parrucchiere_icon.png">
           </div>
-          <!-- DESCRIPTION -->
-          <div class="col-md-5 mt-3">
-            <div class="description">
-              <p class="name"> Nome Professionista</p>
-              <p class="location">Città, indirizzo</p>
-            </div>
+        </div>
+        <!-- DESCRIPTION -->
+        <div class="col-5 mt-3">
+          <div class="description">
+            <p class="name"> Nome Professionista</p>
+            <p class="location">Città, indirizzo</p>
           </div>
-          <!-- DATA -->
-          <div class="col-md-3 mt-3">
-            <div class="description">
-              <p class="name"> Data</p>
-              <p class="location">Ora</p>
-            </div>
+        </div>
+        <!-- DATA -->
+        <div class="col-3 mt-3">
+          <div class="description">
+            <p class="name"> Data</p>
+            <p class="location">Ora</p>
           </div>
         </div>
       </div>
-      <!--PROSSIMI -->
-      <div class="row mt-2 d-flex">
-        <!-- PULSANTI PRENOTAZIONE RAPIDA -->
-    <div class="button-container">
+    </div>
+    <!--PROSSIMI -->
+    <div class="row mt-2 d-flex">
+      <!-- PULSANTI PRENOTAZIONE RAPIDA -->
+  <div class="button-container">
 
-      <div class="button-row justify"> <!-- RIGA 1 -->
+    <div class="button-row justify"> <!-- RIGA 1 -->
 
-        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
-          <img src="../immagini/icone_professioni/architetto_icon.png">
-        </a>
+      <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
+        <img src="../immagini/icone_professioni/architetto_icon.png">
+      </a>
 
-        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
-          <img src="../immagini/icone_professioni/avvocato_icon.png">
-        </a>
+      <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
+        <img src="../immagini/icone_professioni/avvocato_icon.png">
+      </a>
 
-        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
-          <img src="../immagini/icone_professioni/commercialista_icon.png">
-        </a>
+      <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
+        <img src="../immagini/icone_professioni/commercialista_icon.png">
+      </a>
 
-        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
-          <img src="../immagini/icone_professioni/consulente_informatico_icon.png">
-        </a>
+      <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
+        <img src="../immagini/icone_professioni/consulente_informatico_icon.png">
+      </a>
 
-        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
-          <img src="../immagini/icone_professioni/dentista_icon.png">
-        </a>
+      <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
+        <img src="../immagini/icone_professioni/dentista_icon.png">
+      </a>
 
-        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
-          <img src="../immagini/icone_professioni/designer_interni_icon.png">
-        </a>
+      <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
+        <img src="../immagini/icone_professioni/designer_interni_icon.png">
+      </a>
 
-        <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
-          <img src="../immagini/icone_professioni/elettricista_icon.png">
-        </a>
+      <a class="my-button rounded-3 shadow" href="../prenotazioni/prenotazioni.html">
+        <img src="../immagini/icone_professioni/elettricista_icon.png">
+      </a>
 
-       </div>
-      </div>
+     </div>
     </div>
   </div>
+</div>
+   
 
-   <!-- FOOTER -->
-   <footer>
-    <div class="footer">
-      <p>Woofy &copy; 2023</p>
-      <ul>
-        <li><a href="#">Termini di servizio</a></li>
-        <li><a href="#">Privacy</a></li>
-        <li><a href="#">Contattaci</a></li>
-      </ul>
-    </div>
-  </footer> 
-
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer">
+        <p>Woofy &copy; 2023</p>
+        <ul>
+          <li><a href="#">Termini di servizio</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Contattaci</a></li>
+        </ul>
+      </div>
+    </footer> 
   </body>
 
 </html>
