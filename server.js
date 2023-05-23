@@ -236,11 +236,11 @@ app.post('/prenota', function(req, res) {
 
 // INSERIMENTO ORARI DISPONIBILI
 app.post('/save-working-hours', (req, res) => {
-  const userId = req.cookies['userID']; // Assuming you have the authenticated user's ID
+  const userId = req.cookies['userID'];
   const startFields = ['start_mon', 'start_tue', 'start_wed', 'start_thu', 'start_fri', 'start_sat', 'start_sun'];
   const finishFields = ['finish_mon', 'finish_tue', 'finish_wed', 'finish_thu', 'finish_fri', 'finish_sat', 'finish_sun'];
 
-  const selectedDays = req.body; // Array of selected days
+  const selectedDays = req.body; // Array dei giorni selezionati
 
   // Check if a row exists for the user
   connection.query('SELECT * FROM working_hours WHERE user_id = ?', [userId], (error, results) => {
@@ -325,16 +325,19 @@ app.post('/save-working-hours', (req, res) => {
 
 // PRENOTAZIONE
 app.post('/prenotazione', (req, res) => {
+
   console.log('Gestore di route /prenotazione raggiunto');
   const user_id1 = req.body.user_id1;
+  const user_id2 = req.cookies['userID'];
   const date = req.body.date;
   const time = req.body.time;
-  const user_id2 = null;
-  console.log(user_id1,date,time);
+
+  console.log(user_id1, user_id2, date, time);
+
   // Esegui la query per verificare se esiste già una prenotazione
-  const query = `SELECT * FROM booking
-                 WHERE user_id1 = ? AND date = ? AND time = ?`;
-  connection.query(query, [user_id1, date, time], (error, results) => {
+  const query = `SELECT * FROM booking WHERE user_id1 = ? AND user_id2 = ? AND date = ? AND time = ?`;
+
+  connection.query(query, [user_id1, user_id2, date, time], (error, results) => {
     if (error) {
       console.error('Errore durante l\'esecuzione della query:', error);
       res.status(500).json({ error: 'Errore del server' });
@@ -344,8 +347,7 @@ app.post('/prenotazione', (req, res) => {
         res.status(409).json({ error: 'Prenotazione duplicata' });
       } else {
         // Non esiste una prenotazione duplicata, procedi con l'inserimento
-        const insertQuery = `INSERT INTO booking (user_id1, user_id2, date, time)
-                             VALUES (?, ?, ?, ?)`;
+        const insertQuery = `INSERT INTO booking (user_id1, user_id2, date, time) VALUES (?, ?, ?, ?)`;
         connection.query(insertQuery, [user_id1, user_id2, date, time], (error) => {
           if (error) {
             console.error('Errore durante l\'inserimento della prenotazione:', error);

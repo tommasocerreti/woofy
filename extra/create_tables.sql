@@ -35,5 +35,6 @@ CREATE TABLE booking (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id1 INT,
   user_id2 INT,
-  date_time DATETIME
+  date DATE,
+  time TIME
 );
