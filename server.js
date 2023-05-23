@@ -324,18 +324,39 @@ app.post('/save-working-hours', (req, res) => {
 });
 
 // PRENOTAZIONE
-app.post("/api/prenota", (req, res) => {
-  // Ottenere i dati inviati dal client
-  const data = req.body;
-
-  // Effettua il log dei dati nel terminale
-  console.log("Dati ricevuti dal client:", data);
-
-  // Restituisci una risposta al client o esegui altre operazioni
-  // ...
-
-  // Esempio di invio di una risposta di conferma al client
-  res.status(200).json({ message: "Prenotazione effettuata con successo!" });
+app.post('/prenotazione', (req, res) => {
+  console.log('Gestore di route /prenotazione raggiunto');
+  const user_id1 = req.body.user_id1;
+  const date = req.body.date;
+  const time = req.body.time;
+  const user_id2 = null;
+  console.log(user_id1,date,time);
+  // Esegui la query per verificare se esiste già una prenotazione
+  const query = `SELECT * FROM booking
+                 WHERE user_id1 = ? AND date = ? AND time = ?`;
+  connection.query(query, [user_id1, date, time], (error, results) => {
+    if (error) {
+      console.error('Errore durante l\'esecuzione della query:', error);
+      res.status(500).json({ error: 'Errore del server' });
+    } else {
+      if (results.length > 0) {
+        // Esiste già una prenotazione con i dati specificati
+        res.status(409).json({ error: 'Prenotazione duplicata' });
+      } else {
+        // Non esiste una prenotazione duplicata, procedi con l'inserimento
+        const insertQuery = `INSERT INTO booking (user_id1, user_id2, date, time)
+                             VALUES (?, ?, ?, ?)`;
+        connection.query(insertQuery, [user_id1, user_id2, date, time], (error) => {
+          if (error) {
+            console.error('Errore durante l\'inserimento della prenotazione:', error);
+            res.status(500).json({ error: 'Errore del server' });
+          } else {
+            res.status(200).json({ success: true });
+          }
+        });
+      }
+    }
+  });
 });
 
 

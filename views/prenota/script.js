@@ -1,40 +1,38 @@
-document.getElementById("prenota-btn").addEventListener("click", function(event) {
-    event.preventDefault(); // Evita il comportamento predefinito del pulsante di invio del modulo
+function prenotaButtonClicked(event) {
+  event.preventDefault(); // Evita il comportamento predefinito del pulsante
 
-    // Ottieni i valori del form
-    var form = document.getElementById("booking-form");
-    var date = form.elements["date"].value;
-    var time = form.elements["time"].value;
-    var professionalId = form.dataset.professionalId;
+  // Ottieni i valori desiderati
+  var user_id1 = event.target.getAttribute('data-professional-id');
+  var date = document.querySelector('input[name="date"]').value;
+  var time = document.querySelector('select[name="time"]').value;
 
-    // Crea un oggetto con i dati del form
-    var data = {
-        date: date,
-        time: time,
-        professionalId: professionalId
-    };
+  // Crea un oggetto con i valori da inviare al server
+  var data = {
+    user_id1: user_id1,
+    date: date,
+    time: time
+  };
 
-    console.log(data);
-
-    // Effettua la richiesta POST al server
-    fetch("/api/prenota", {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
+  // Invia i dati al server utilizzando la fetch
+  fetch('/prenotazione', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Risposta del server:', data);
+      // Esegui altre azioni o aggiornamenti dell'interfaccia utente come necessario
     })
-    .then(function(response) {
-        if (response.ok) {
-        // La prenotazione è stata effettuata con successo
-        alert("Prenotazione effettuata con successo!");
-        // Esegui altre azioni o reindirizza l'utente a una pagina di conferma
-        } else {
-        // La prenotazione non è stata effettuata
-        alert("Errore durante la prenotazione. Riprova più tardi.");
-        }
-    })
-    .catch(function(error) {
-        console.error("Errore durante la richiesta:", error);
+    .catch(error => {
+      console.error('Si è verificato un errore durante l\'invio dei dati:', error);
     });
-});
+}
+
+// Aggiungi un gestore di eventi a tutti i pulsanti con la classe "book-btn"
+var bookButtons = document.querySelectorAll('.book-btn');
+for (var i = 0; i < bookButtons.length; i++) {
+  bookButtons[i].addEventListener('click', prenotaButtonClicked);
+}
