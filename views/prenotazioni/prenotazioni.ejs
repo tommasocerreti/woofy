@@ -31,25 +31,25 @@
             <h3 class=" small-text d-flex justify-content-center align-items-center mb-3">Giorni ed Orari di Lavoro</h3>
             <div class="row mx-4 mb-3 custom-row">
               <div class="col">
-                <button class="btn btn-primary custom-btn time-button">Lun</button>
+                <button class="btn btn-primary custom-btn time-button" onclick="selectDay('mon')">Lun</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary custom-btn time-button">Mar</button>
+                <button class="btn btn-primary custom-btn time-button" onclick="selectDay('tue')">Mar</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary custom-btn time-button">Mer</button>
+                <button class="btn btn-primary custom-btn time-button" onclick="selectDay('wed')">Mer</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary custom-btn time-button">Gio</button>
+                <button class="btn btn-primary custom-btn time-button" onclick="selectDay('thi')">Gio</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary custom-btn time-button">Ven</button>
+                <button class="btn btn-primary custom-btn time-button" onclick="selectDay('fri')">Ven</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary custom-btn time-button">Sab</button>
+                <button class="btn btn-primary custom-btn time-button" onclick="selectDay('sat')">Sab</button>
               </div>
               <div class="col">
-                <button class="btn btn-primary custom-btn time-button">Dom</button>
+                <button class="btn btn-primary custom-btn time-button" onclick="selectDay('sun')">Dom</button>
               </div>
             </div>
             <!-- <h3 class="small-text d-flex justify-content-center align-items-center mb-3">Imposta gli orari:</h3> -->
@@ -58,7 +58,7 @@
               <h4 class="small-text d-flex justify-content-center align-items-center mb-3">Inizio</h4>
             </div>
             <div class="col custom-col">
-              <select class="form-select w-auto mx-2 mt-auto">
+              <select class="form-select w-auto mx-2 mt-auto" id="start-time">
                 <option disabled selected>--</option>
                 <option value="08:00">08:00</option>
                 <option value="09:00">09:00</option>
@@ -79,7 +79,7 @@
             <h4 class="small-text d-flex justify-content-center align-items-center mb-3">Fine</h4>
             </div>
             <div class="col mb-3">
-              <select class="form-select w-auto mx-2 mt-auto">
+              <select class="form-select w-auto mx-2 mt-auto" id="end-time">
                 <option disabled selected>--</option>
                 <option value="08:00">08:00</option>
                 <option value="09:00">09:00</option>
@@ -98,7 +98,7 @@
             </div>
           </div>
           <div class="row mx-2">
-            <button class="btn btn-primary custom-btn time-button">Conferma</button>
+            <button class="btn btn-primary custom-btn time-button" onclick="saveWorkingHours()">Conferma</button>
           </div>
         </div>
       </div>

@@ -1,3 +1,45 @@
+function selectDay(day) {
+    // Rimuovi la classe attiva da tutti i pulsanti dei giorni
+    const dayButtons = document.querySelectorAll('.time-button');
+    dayButtons.forEach(button => button.classList.remove('active'));
+  
+    // Aggiungi la classe attiva al pulsante del giorno selezionato
+    const selectedButton = document.querySelector(`button[data-day="${day}"]`);
+    selectedButton.classList.add('active');
+  }
+  
+  function saveWorkingHours() {
+    const selectedDayButton = document.querySelector('.time-button.active');
+    const startTimeSelect = document.getElementById('start-time');
+    const endTimeSelect = document.getElementById('end-time');
+  
+    const selectedDay = selectedDayButton.getAttribute('data-day');
+    const startTime = startTimeSelect.value;
+    const endTime = endTimeSelect.value;
+  
+    // Effettua una richiesta al backend per salvare i dati selezionati
+    // Utilizza i valori di selectedDay, startTime e endTime nella richiesta
+  
+    // Esempio di codice per inviare i dati al backend tramite fetch:
+    fetch('/save-working-hours', {
+      method: 'POST',
+      body: JSON.stringify({ day: selectedDay, start: startTime, end: endTime }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Dati salvati con successo:', data);
+      // Esegui altre azioni o aggiornamenti dell'interfaccia utente come necessario
+    })
+    .catch(error => {
+      console.error('Si è verificato un errore durante il salvataggio dei dati:', error);
+    });
+  }
+
+
+// CALENDARIO
 $(document).ready(function() {
 // Inizializza il mese corrente
 var currentMonth = 5; // Giugno (0 = gennaio, 1 = febbraio, ecc.)
