@@ -209,7 +209,7 @@ app.post('/login', function(req, res) {
 });
 
 
-// RICERCA DEL PROFESSIONISTA NELLA PAGINA PRENOTA
+// RICERCA DEL  PROFESSIONISTA NELLA PAGINA PRENOTA
 app.post('/save-working-hours', (req, res) => {
   const userId = req.cookies['userID']; // Assuming you have the authenticated user's ID
   const startFields = ['start_mon', 'start_tue', 'start_wed', 'start_thu', 'start_fri', 'start_sat', 'start_sun'];
