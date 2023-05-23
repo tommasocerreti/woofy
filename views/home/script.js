@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   $(function() {
-    $('.my-button').on('click', function() {
+    $('.my-button:not(.disabled)').on('click', function() {
       const professione = $(this).data('professione');
       inviaRichiestaPOST(professione);
     });
