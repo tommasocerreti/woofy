@@ -557,10 +557,7 @@ footer ul li a:hover {
    .small-row{
     margin-left: 0!important;
    }
-}
-
-@media (max-width: 1060px) {
-  .timebox-row {
+   .timebox-row {
     flex-wrap: wrap;
     gap:20px;
   }
@@ -572,7 +569,7 @@ footer ul li a:hover {
     width: 100%;
   }
 }
-  
+
 @media (max-width: 991px) { 
   .time-button {
     font-size: 13px;
@@ -643,6 +640,9 @@ footer ul li a:hover {
           .custom-container2> * {
             --bs-gutter-x: 0 !important;
             
+          }
+          .custom-containerx{
+            max-width: 460px;
           }
     } 
 
