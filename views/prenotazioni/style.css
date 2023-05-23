@@ -559,6 +559,20 @@ footer ul li a:hover {
    }
 }
 
+@media (max-width: 1060px) {
+  .timebox-row {
+    flex-wrap: wrap;
+    gap:20px;
+  }
+  .col-8 {
+    width: 80%;
+    margin: 0 auto;
+    }
+  .col-4 {
+    width: 100%;
+  }
+}
+  
 @media (max-width: 991px) { 
   .time-button {
     font-size: 13px;
@@ -574,8 +588,8 @@ footer ul li a:hover {
   }
   @media (max-width: 767px) {
     .time-button {
-      font-size: 13px;
-      padding: 12px 15px;
+      font-size: 10px;
+      padding: 8px 10px;
       margin-bottom: 5px;
     }
     .small-text{
@@ -602,12 +616,12 @@ footer ul li a:hover {
     .custom-container3{
       max-width: 400px;
     }
-    .custom-dropdown{
-      min-height: 10.4rem;
-     }
+    .small-row {
+      flex-wrap: nowrap;
     }
+  }
      
-    @media (max-width: 550px) { 
+    @media (max-width: 580px) { 
       .custom-container4{
       max-width: 470px;
       }
