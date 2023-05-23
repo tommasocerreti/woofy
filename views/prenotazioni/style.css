@@ -1,14 +1,6 @@
 body{
   background-image: radial-gradient(circle, #1c3c82, #000436);
 }
-@media (max-width: 768px) {
-  body {
-    transform: scale(0.5); /* Modifica il valore di scala desiderato (1:x) */
-    transform-origin: top;
-  }
-}
-
-
 /* NAVBAR */
 .nav-item {
   position: relative;
@@ -140,6 +132,9 @@ body{
   height: 120px;
 }
 
+.custom-pic{
+  margin-left: 5px; 
+}
 
 /* BUTTONS */
 .btn.custom-btn {
@@ -155,7 +150,10 @@ body{
 .btn.book-btn {
   padding: 50px;
 }
-
+.time-button {
+  font-size: 20px;
+  padding: 10px 20px;
+}
 /* BOTTONI PRENOTAZIONE RAPIDA */
 .button-container {
   display: flex;
@@ -178,16 +176,6 @@ body{
   height: 125px;
   margin-right: 50px;
   margin-bottom: 30px;
-  @media (max-width:1400px){
-  width: 90px;
-  height: 90px;
-  }
-  @media (max-width:1199px){
-  width: 70px;
-  height: 70px;
-  margin-right: 50px;
-  margin-bottom: 30px;
-  }
 }
 .my-button:hover {
   transform: scale(1.15);
@@ -228,7 +216,14 @@ body{
 }
 
 .custom-container2 {
-  --bs-gutter-x: 0rem; 
+  --bs-gutter-x: 0;
+}
+
+.user-btn{
+  width:300px;
+}
+.last-button{
+  width:300px;
 }
 
 
@@ -279,3 +274,159 @@ footer ul li a {
 footer ul li a:hover {
   color: #ffffff;
 }
+.custom-row > * {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+.custom-dropdown{
+  min-height: 22.4rem;
+ }
+
+
+/* @media query */
+
+
+@media (max-width: 1400px) {
+  .my-button{
+  width: 90px;
+  height: 90px;
+  }
+  .time-button {
+    font-size: 15px;
+    padding: 15px 20px;
+  }
+  .custom-dropdown{
+    min-height: 22.5rem;
+   }
+   .last-button{
+    width: 130px;
+    height: 100px;
+    font-size:18px;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+}
+
+@media (max-width: 1199px) {
+  .my-button{
+  width: 70px;
+  height: 70px;  
+  }
+  .time-button {
+    font-size: 13px;
+    padding: 12px 15px;
+  }
+  .user-btn{
+    width: 150px;
+  }
+  .timebox-row > *{
+    padding-right: 0 !important;
+  }
+  .custom-dropdown{
+    min-height: 21rem;
+   }
+}
+
+@media (max-width: 991px) { 
+  .time-button {
+    font-size: 13px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+  }
+  .small-text{
+   font-size:20px; 
+  }
+  .custom-col{
+      max-width: 50%;
+    } 
+    .custom-dropdown{
+      min-height: 29rem;
+     }
+     .small-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Divide il contenitore in due colonne di larghezza uguale */
+      grid-template-rows: auto auto; /* Crea due righe di altezza automatica */
+    }
+    
+    .small-row .col:nth-child(1) {
+      grid-column: 1; /* Imposta la colonna del primo elemento nella prima colonna */
+      grid-row: 1; /* Imposta la riga del primo elemento nella prima riga */
+    }
+    
+    .small-row .col:nth-child(2) {
+      grid-column: 2; /* Imposta la colonna del secondo elemento nella seconda colonna */
+      grid-row: 1; /* Imposta la riga del secondo elemento nella prima riga */
+    }
+    
+    .small-row .col:nth-child(3) {
+      grid-column: 1; /* Imposta la colonna del terzo elemento nella prima colonna */
+      grid-row: 2; /* Imposta la riga del terzo elemento nella seconda riga */
+    }
+    
+    .small-row .col:nth-child(4) {
+      grid-column: 2; /* Imposta la colonna del quarto elemento nella seconda colonna */
+      grid-row: 2; /* Imposta la riga del quarto elemento nella seconda riga */
+    }
+    
+    
+  }
+  @media (max-width: 767px) {
+    .time-button {
+      font-size: 13px;
+      padding: 12px 15px;
+      margin-bottom: 5px;
+    }
+    .small-text{
+      font-size:15px; 
+     }
+     .custom-col{
+      max-width: 66%;
+      margin-bottom: 10px;
+    } 
+    .last-button{
+      width: 70px;
+      height: 70px;
+      font-size:13px;
+      }
+    .btn.book-btn {
+        padding: 8px;
+      }
+    .last-col{
+        max-width: 10px;
+      }
+    .custom-pic > *{
+      margin-left: 1px !important;
+    }
+    .custom-container3{
+      max-width: 400px;
+    }
+    .custom-dropdown{
+      min-height: 10.4rem;
+     }
+    }
+    @media (max-width: 550px) { 
+      .custom-container4{
+      max-width: 470px;
+      }
+      .last-button{
+        width: 60px;
+        height: 60px;
+        font-size:13px;
+        }
+        .custom-pic > *{
+          width: 90px !important;
+          height: 90px !important;
+        }
+        .small-text{
+          font-size:13px;
+        }
+        .custom-col{
+          max-width: 67%;
+          } 
+          .custom-container2> * {
+            --bs-gutter-x: 0 !important;
+            
+          }
+    } 
