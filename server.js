@@ -50,9 +50,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
-// ROUTE
-
-
 
 // IMPOSTAZIONE UTENTE LOGGATO + FUNZIONE LOGOUT
 app.get('/', function(req, res) {
@@ -77,6 +74,7 @@ app.get('/prenota', requireLogin, function(req, res) {
   const loggedIn = req.session.user ? true : false;
   res.render(path.join(__dirname, 'views', 'prenota', 'prenota.ejs'), { loggedIn });
 });
+
 app.get('/logout', function(req, res) {
  req.session.destroy(function(err) {
     if (err) {
@@ -89,6 +87,8 @@ app.get('/logout', function(req, res) {
   });
 });
 
+
+// ROUTE
 app.get('/prenotazioni', function(req, res) {
   res.render(path.join(__dirname, 'views', 'prenotazioni', 'prenotazioni.ejs'));
 });
@@ -220,10 +220,6 @@ app.post('/prenota', function(req, res) {
     }
   });
 });
-
-
-
-
 
 
 

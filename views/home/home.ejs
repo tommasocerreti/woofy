@@ -30,22 +30,20 @@
     <!-- INFO-BOX -->
     <% if (loggedIn) { %>
       <!-- Codice da eseguire se l'utente è loggato -->
-    
-    <div class="container info-box small-info-box bg-light rounded-3 shadow d-flex align-items-center justify-content-center" style="width: 700px; height: 300px;">
-      <div class="row">
+      <div class="container info-box small-info-box bg-light rounded-3 shadow d-flex align-items-center justify-content-center" style="width: 700px; height: 300px;">
+        <div class="row">
 
-          <div class="col-8 info-text d-flex flex-column justify-content-center align-items-center" style="width: 500px; height: 300px;">
-            <p class="fs-4 fw-bold">Prossimo appuntamento tra: 01:01</p>
-            <p class="fs-5">Con Tiziano a Via Scarpa</p>
-          </div>
+            <div class="col-8 info-text d-flex flex-column justify-content-center align-items-center" style="width: 500px; height: 300px;">
+              <p class="fs-4 fw-bold">Prossimo appuntamento tra: 01:01</p>
+              <p class="fs-5">Con Tiziano a Via Scarpa</p>
+            </div>
 
-          <div class="col-4 info-img d-flex justify-content-center align-items-end" style="width: 200px; height: 300px;">
-            <img src="../immagini/omino_home.png" alt="Descrizione immagine" class="img-fluid">
-          </div>
+            <div class="col-4 info-img d-flex justify-content-center align-items-end" style="width: 200px; height: 300px;">
+              <img src="../immagini/omino_home.png" alt="Descrizione immagine" class="img-fluid">
+            </div>
 
+        </div>
       </div>
-    </div>
-  
     <% } %>
 
     <!-- PULSANTI PRENOTAZIONE RAPIDA -->
@@ -118,9 +116,6 @@
           <span>Medico</span>
         </a>
         
-        
-        
-
         <a class="my-button rounded-3 shadow" data-professione="Notaio">
           <img src="../immagini/icone_professioni/notaio_icon.png">
           <span>Notaio</span>
@@ -183,7 +178,8 @@
     </footer> 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/bootstrap.min.js"></script>
-    <script src="/home/script.js"></script>
+    <script src="/bootstrap.bundle.min.js"></script>
+    <script src="/prenotazioni/script.js"></script>
+    
   </body>
 </html>
