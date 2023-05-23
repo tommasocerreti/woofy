@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const validator = require('validator');
 const session = require('express-session');
 const handlebars = require('handlebars');
+const cookierParser = require('cookie-parser');
 
 
 // CONFIGURAZIONE DEL MIDDLEWARE DI SESSIONE IN EXPRESS
@@ -48,6 +49,19 @@ app.use(bodyParser.json());
 app.engine('ejs', require('ejs').__express);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+
+// SET COOKIES
+app.use(cookierParser());
+app.use(async function (req, res, next) {
+  if (req.cookies['userID'] === undefined) {
+    res.cookie('userID', 'NULL');
+    console.log('Start Cookie created successfully');
+  } else {
+    console.log('Cookie already exists', req.cookies);
+  }
+  next();
+});
 
 
 
@@ -152,7 +166,7 @@ app.post('/registrazione', function(req, res) {
       address: address,
     };
 
-    connection.query('INSERT INTO user (first_name, secondName, email, password, profession, city, address) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+    connection.query('INSERT INTO user (firstName, secondName, email, password, profession, city, address) VALUES (?, ?, ?, ?, ?, ?, ?)', 
               [newUser.firstName, newUser.secondName, newUser.email, newUser.password, newUser.profession, newUser.city, newUser.address], function(error, results) {
       if (error) {
         console.error('Errore durante l\'inserimento dell\'utente nel database:', error);
@@ -185,6 +199,7 @@ app.post('/login', function(req, res) {
     if (password === user.password) {
       // Password corretta, avvia la sessione o restituisci un messaggio di successo
       req.session.user = user;
+      res.cookie('userID',user.id);
       return res.redirect('/'); // Reindirizza all'area riservata o invia un messaggio di successo
     } else {
       // Password non valida
@@ -220,6 +235,69 @@ app.post('/prenota', function(req, res) {
     }
   });
 });
+
+
+
+// IMPOSTAZIONE ORARI DI LAVORO
+app.post('/save-working-hours', (req, res) => {
+  //console.log("DEBUG");
+  //console.log(req.cookies);
+  //console.log(req.body);
+  const userId = req.cookies['userID']; // Assuming you have the authenticated user's ID
+  var values = [null, null, null];
+
+  for (let i = 0; i < req.body.length; i++){
+    console.log(req.body[i]);
+    const { day, start, end } = req.body[i];
+    //console.log("DEBUG");
+    //console.log(day);
+    
+    // Esegui l'operazione di inserimento nel database utilizzando la libreria MySQL per Node.js
+    switch (day) {
+      case 'mon':
+        query = 'INSERT INTO working_hours (user_id, start_mon, finish_mon) VALUES (?, ?, ?)';
+        values = [userId, start, end];
+        break;
+      case 'tue':
+        query = 'INSERT INTO working_hours (user_id, start_tue, finish_tue) VALUES (?, ?, ?)';
+        values = [userId, start, end];
+        break;
+      case 'wed':
+        query = 'INSERT INTO working_hours (user_id, start_wed, finish_wed) VALUES (?, ?, ?)';
+        values = [userId, start, end];
+        break;
+      case 'thu':
+        query = 'INSERT INTO working_hours (user_id, start_thu, finish_thu) VALUES (?, ?, ?)';
+        values = [userId, start, end];
+        break;
+      case 'fri':
+        query = 'INSERT INTO working_hours (user_id, start_fri, finish_fri) VALUES (?, ?, ?)';
+        values = [userId, start, end];
+        break;
+      case 'sat':
+        query = 'INSERT INTO working_hours (user_id, start_sat, finish_sat) VALUES (?, ?, ?)';
+        values = [userId, start, end];
+        break;
+      case 'sun':
+        query = 'INSERT INTO working_hours (user_id, start_sun, finish_sun) VALUES (?, ?, ?)';
+        values = [userId, start, end];
+        break;
+      default:
+        console.log("NOT FOUND");
+    }
+  }
+  // Esegui la query
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Errore durante l\'inserimento delle ore lavorative:', error);
+      res.status(500).json({ error: 'Si è verificato un errore durante il salvataggio delle ore lavorative.' });
+    } else {
+      console.log('Ore lavorative salvate con successo.');
+      res.status(200).json({ success: true });
+    }
+  });
+});
+
 
 
 

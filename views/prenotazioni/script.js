@@ -1,29 +1,40 @@
 function selectDay(day) {
-    // Rimuovi la classe attiva da tutti i pulsanti dei giorni
-    const dayButtons = document.querySelectorAll('.time-button');
-    dayButtons.forEach(button => button.classList.remove('active'));
-  
-    // Aggiungi la classe attiva al pulsante del giorno selezionato
     const selectedButton = document.querySelector(`button[data-day="${day}"]`);
-    selectedButton.classList.add('active');
-  }
+    const isSelected = selectedButton.classList.contains('active');
   
-  function saveWorkingHours() {
-    const selectedDayButton = document.querySelector('.time-button.active');
+    if (isSelected) {
+      selectedButton.classList.remove('active');
+    } else {
+      selectedButton.classList.add('active');
+    }
+}
+  
+function saveWorkingHours() {
+    const selectedDayButtons = document.querySelectorAll('.time-button.active');
     const startTimeSelect = document.getElementById('start-time');
     const endTimeSelect = document.getElementById('end-time');
   
-    const selectedDay = selectedDayButton.getAttribute('data-day');
-    const startTime = startTimeSelect.value;
-    const endTime = endTimeSelect.value;
+    const workingHours = [];
+  
+    selectedDayButtons.forEach(button => {
+      const day = button.getAttribute('data-day');
+      const startTime = startTimeSelect.value;
+      const endTime = endTimeSelect.value;
+  
+      const workingHour = {
+        day: day,
+        start: startTime,
+        end: endTime
+      };
+  
+      workingHours.push(workingHour);
+    });
   
     // Effettua una richiesta al backend per salvare i dati selezionati
-    // Utilizza i valori di selectedDay, startTime e endTime nella richiesta
-  
-    // Esempio di codice per inviare i dati al backend tramite fetch:
+    // Utilizza i valori di workingHours nella richiesta
     fetch('/save-working-hours', {
       method: 'POST',
-      body: JSON.stringify({ day: selectedDay, start: startTime, end: endTime }),
+      body: JSON.stringify(workingHours),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -36,7 +47,8 @@ function selectDay(day) {
     .catch(error => {
       console.error('Si è verificato un errore durante il salvataggio dei dati:', error);
     });
-  }
+}
+  
 
 
 // CALENDARIO

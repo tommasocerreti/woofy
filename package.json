@@ -20,6 +20,7 @@
     "validator": "latest",
     "handlebars": "latest",
     "ejs": "latest",
-    "nodemon": "latest"
+    "nodemon": "latest",
+    "cookie-parser": "^1.4.6"
   }
 }
