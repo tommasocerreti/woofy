@@ -122,7 +122,7 @@ app.get('/bootstrap.min.js.map', function(req, res) {
 // REGISTRAZIONE
 app.post('/registrazione', function(req, res) {
   const firstName = req.body.firstName;
-  const surname = req.body.surname;
+  const secondName = req.body.secondName;
   const email = req.body.email;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
@@ -144,7 +144,7 @@ app.post('/registrazione', function(req, res) {
     // INSERIMENTO DELL'UTENTE NEL DATABASE
     const newUser = {
       firstName: firstName,
-      surname: surname,
+      secondName: secondName,
       email: email,
       password: password,
       profession: profession,
@@ -152,8 +152,8 @@ app.post('/registrazione', function(req, res) {
       address: address,
     };
 
-    connection.query('INSERT INTO user (first_name, surname, email, password, profession, city, address) VALUES (?, ?, ?, ?, ?, ?, ?)', 
-              [newUser.firstName, newUser.surname, newUser.email, newUser.password, newUser.profession, newUser.city, newUser.address], function(error, results) {
+    connection.query('INSERT INTO user (first_name, secondName, email, password, profession, city, address) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+              [newUser.firstName, newUser.secondName, newUser.email, newUser.password, newUser.profession, newUser.city, newUser.address], function(error, results) {
       if (error) {
         console.error('Errore durante l\'inserimento dell\'utente nel database:', error);
         return res.send('Si è verificato un errore durante la registrazione. Riprova più tardi.');
