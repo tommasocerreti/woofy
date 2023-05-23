@@ -209,83 +209,38 @@ app.post('/login', function(req, res) {
 });
 
 
-
 // RICERCA DEL PROFESSIONISTA NELLA PAGINA PRENOTA
-app.post('/prenota', function(req, res) {
-  const profession = req.body.profession;
-  console.log('Valore profession:', profession);
-
-  connection.query('SELECT * FROM User WHERE profession = ?', [profession], async function(error, results) {
-    if (error) {
-      console.error('Errore durante la ricerca dei professionisti:', error);
-      return res.status(500).send('Si è verificato un errore durante la ricerca dei professionisti.');
-    }
-
-    try {
-      console.log(results);
-
-      if (!results || results.length === 0) {
-        return res.render('prenota/prenota', { professionals: [], professione: profession });
-      }
-
-      res.render('prenota/prenota', { professionals: results, professione: profession });
-    } catch (error) {
-      console.error('Si è verificato un errore durante la ricerca dei professionisti:', error);
-      res.status(500).send('Si è verificato un errore durante la ricerca dei professionisti.');
-    }
-  });
-});
-
-
-
-// IMPOSTAZIONE ORARI DI LAVORO
 app.post('/save-working-hours', (req, res) => {
-  //console.log("DEBUG");
-  //console.log(req.cookies);
-  //console.log(req.body);
   const userId = req.cookies['userID']; // Assuming you have the authenticated user's ID
-  var values = [null, null, null];
+  const startFields = ['start_mon', 'start_tue', 'start_wed', 'start_thu', 'start_fri', 'start_sat', 'start_sun'];
+  const finishFields = ['finish_mon', 'finish_tue', 'finish_wed', 'finish_thu', 'finish_fri', 'finish_sat', 'finish_sun'];
 
-  for (let i = 0; i < req.body.length; i++){
-    console.log(req.body[i]);
-    const { day, start, end } = req.body[i];
-    //console.log("DEBUG");
-    //console.log(day);
-    
-    // Esegui l'operazione di inserimento nel database utilizzando la libreria MySQL per Node.js
-    switch (day) {
-      case 'mon':
-        query = 'INSERT INTO working_hours (user_id, start_mon, finish_mon) VALUES (?, ?, ?)';
-        values = [userId, start, end];
-        break;
-      case 'tue':
-        query = 'INSERT INTO working_hours (user_id, start_tue, finish_tue) VALUES (?, ?, ?)';
-        values = [userId, start, end];
-        break;
-      case 'wed':
-        query = 'INSERT INTO working_hours (user_id, start_wed, finish_wed) VALUES (?, ?, ?)';
-        values = [userId, start, end];
-        break;
-      case 'thu':
-        query = 'INSERT INTO working_hours (user_id, start_thu, finish_thu) VALUES (?, ?, ?)';
-        values = [userId, start, end];
-        break;
-      case 'fri':
-        query = 'INSERT INTO working_hours (user_id, start_fri, finish_fri) VALUES (?, ?, ?)';
-        values = [userId, start, end];
-        break;
-      case 'sat':
-        query = 'INSERT INTO working_hours (user_id, start_sat, finish_sat) VALUES (?, ?, ?)';
-        values = [userId, start, end];
-        break;
-      case 'sun':
-        query = 'INSERT INTO working_hours (user_id, start_sun, finish_sun) VALUES (?, ?, ?)';
-        values = [userId, start, end];
-        break;
-      default:
-        console.log("NOT FOUND");
+  const selectedDays = req.body; // Array of selected days
+
+  let query = 'INSERT INTO working_hours (user_id';
+  let values = [userId];
+
+  for (let i = 0; i < startFields.length; i++) {
+    const startField = startFields[i];
+    const finishField = finishFields[i];
+
+    const selectedDay = selectedDays.find(day => day.day === startField.replace('start_', ''));
+    if (selectedDay) {
+      const { start, end } = selectedDay;
+      query += `, ${startField}, ${finishField}`;
+      values.push(start, end);
+    } else {
+      query += `, ${startField}, ${finishField}`;
+      values.push(null, null);
     }
   }
+
+  query += ') VALUES (?';
+  for (let i = 0; i < startFields.length * 2; i++) {
+    query += ', ?';
+  }
+  query += ')';
+
   // Esegui la query
   connection.query(query, values, (error, results) => {
     if (error) {
@@ -297,6 +252,7 @@ app.post('/save-working-hours', (req, res) => {
     }
   });
 });
+
 
 
 
