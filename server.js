@@ -152,7 +152,7 @@ app.post('/registrazione', function(req, res) {
       address: address,
     };
 
-    connection.query('INSERT INTO user (first_name, secondName, email, password, profession, city, address) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+    connection.query('INSERT INTO user (firstName, secondName, email, password, profession, city, address) VALUES (?, ?, ?, ?, ?, ?, ?)', 
               [newUser.firstName, newUser.secondName, newUser.email, newUser.password, newUser.profession, newUser.city, newUser.address], function(error, results) {
       if (error) {
         console.error('Errore durante l\'inserimento dell\'utente nel database:', error);
