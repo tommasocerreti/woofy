@@ -5,13 +5,20 @@ function prenotaButtonClicked(event) {
   var user_id1 = event.target.getAttribute('data-professional-id');
   var date = document.querySelector('input[name="date"]').value;
   var time = document.querySelector('select[name="time"]').value;
+  
+  var dayNames = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+  var dayOfWeek = new Date(date).getDay();
+  var day = dayNames[dayOfWeek];
 
   // Crea un oggetto con i valori da inviare al server
   var data = {
     user_id1: user_id1,
     date: date,
-    time: time
+    time: time,
+    day: day
   };
+
+  console.log(data);
 
   // Invia i dati al server utilizzando la fetch
   fetch('/prenotazione', {

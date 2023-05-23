@@ -331,8 +331,9 @@ app.post('/prenotazione', (req, res) => {
   const user_id2 = req.cookies['userID'];
   const date = req.body.date;
   const time = req.body.time;
+  const day = req.body.day;
 
-  console.log(user_id1, user_id2, date, time);
+  console.log(user_id1, user_id2, date, time, day);
 
   // Esegui la query per verificare se esiste già una prenotazione
   const query = `SELECT * FROM booking WHERE user_id1 = ? AND user_id2 = ? AND date = ? AND time = ?`;
