@@ -1,10 +1,12 @@
 function prenotaButtonClicked(event) {
   event.preventDefault(); // Evita il comportamento predefinito del pulsante
 
-  // Ottieni i valori desiderati
+  var box = event.target.closest('.container-box'); // Trova il box genitore del pulsante su cui è stato fatto clic
+
+  // Ottieni i valori desiderati all'interno del box specifico
   var user_id1 = event.target.getAttribute('data-professional-id');
-  var date = document.querySelector('input[name="date"]').value;
-  var time = document.querySelector('select[name="time"]').value;
+  var date = box.querySelector('input[name="date"]').value;
+  var time = box.querySelector('select[name="time"]').value;
   
   var dayNames = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   var dayOfWeek = new Date(date).getDay();
