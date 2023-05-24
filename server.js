@@ -404,10 +404,39 @@ app.post('/prenotazione', (req, res) => {
   });
 });
 
+/* Gestisci la richiesta POST per ottenere i dati del countdown
+app.post('/get-countdown', (req, res) => {
+  // Esegui la query per selezionare la prenotazione più vicina dal database
+  console.log("Entra");
+  const user_id2 = req.cookies['userID'];
+  const query = 'SELECT date, time FROM booking  WHERE user_id2 = ? ORDER BY date, time LIMIT 1';
+  console.log("Entra")
+  connection.query(query, [user_id2], (error, results) => {
+    if (error) {
+      console.error('Errore nella query al database:', error);
+      return res.status(500).json({ error: 'Errore nella query al database.' });
+    }
 
-
-
-
+    if (results.length === 0) {
+      // Nessuna prenotazione trovata
+      
+      return res.status(404).json({ error: 'Nessuna prenotazione trovata.' });
+    }
+    console.log(results);
+    // Calcola il countdown fino all'appuntamento più vicino
+    const nextAppointment = results[0];
+    console.log(results[0]);
+    const currentDate = new Date();
+    console.log(currentDate);
+    const appointmentDate = new Date(nextAppointment.date + ' ' + nextAppointment.time);
+    const countdown = appointmentDate.getTime() - currentDate.getTime();
+    console.log(countdown);
+    console.log(results[0]);
+    // Restituisci il countdown come risposta
+    res.json({ countdown });
+  });
+});
+*/
 
 
 
