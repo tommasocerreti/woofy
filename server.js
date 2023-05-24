@@ -340,15 +340,16 @@ app.post('/prenotazione', (req, res) => {
   console.log(user_id1, user_id2, date, time, day);
 
   // ESISTE PRENOTAZIONE?
-  const query = `SELECT * FROM booking WHERE user_id1 = ? AND user_id2 = ? AND date = ? AND time = ?`;
+  const query = `SELECT * FROM booking WHERE user_id1 = ? AND date = ? AND time = ?`;
 
-  connection.query(query, [user_id1, user_id2, date, time], (error, results) => {
+  connection.query(query, [user_id1, date, time], (error, results) => {
     if (error) {
       console.error('Errore durante l\'esecuzione della query:', error);
       res.status(500).json({ error: 'Errore del server' });
     } else {
       if (results.length > 0) {
         // Esiste già una prenotazione con i dati specificati
+        console.log("Gia esiste");
         res.status(409).json({ error: 'Prenotazione duplicata' });
       } else {
         console.log('ESISTE PRENOTAZIONE?');
@@ -372,38 +373,29 @@ app.post('/prenotazione', (req, res) => {
 
 
               // QUELL'ORARIO É COMPRESO TRA QUELLI DISPONIBILI?
-              const timeQuery = `SELECT * FROM working_hours WHERE user_id = ? AND time = ? AND ${time} >= ${startDayValue} AND ${time} <= ${finishDayValue}`;
-              connection.query(timeQuery, [user_id1, time], (error, results) => {
-                if (error) {
-                  console.log('QUELLORARIO É COMPRESO TRA QUELLI DISPONIBILI?1111111');
-                  console.error('Errore durante l\'esecuzione della query:', error);
-                  res.status(500).json({ error: 'Errore del server' });
-                } else {
-                  if (results.length > 0) {
-                    console.log('QUELLORARIO É COMPRESO TRA QUELLI DISPONIBILI?2222222');
-                    // Il tempo non è disponibile
-                    res.status(409).json({ error: 'Orario non disponibile' });
-                  } else {
-                    console.log('QUELLORARIO É COMPRESO TRA QUELLI DISPONIBILI?3333333');
-                    // Entrambi i controlli passati, procedi con l'inserimento
-                    const insertQuery = `INSERT INTO booking (user_id1, user_id2, date, time) VALUES (?, ?, ?, ?)`;
-                    connection.query(insertQuery, [user_id1, user_id2, date, time], (error) => {
-                      if (error) {
-                        console.error('Errore durante l\'inserimento della prenotazione:', error);
-                        res.status(500).json({ error: 'Errore del server' });
-                      } else {
-                        console.log('QUELLORARIO É COMPRESO TRA QUELLI DISPONIBILI?444444444');
-                        res.status(200).json({ success: true });
-                      }
-                    });
-                  }
-                }
-              });
+             {
+              if (time >= startDayValue && time <= finishDayValue) {
+                  // Entrambi i controlli passati, procedi con l'inserimento
+                  const insertQuery = `INSERT INTO booking (user_id1, user_id2, date, time) VALUES (?, ?, ?, ?)`;
+                  console.log("Fenomeno");
+                  connection.query(insertQuery, [user_id1, user_id2, date, time], (error) => {
+                    if (error) {
+                      console.error('Errore durante l\'inserimento della prenotazione:', error);
+                      res.status(500).json({ error: 'Errore del server' });
+                    } else {
+                      console.log('QUELLORARIO É COMPRESO TRA QUELLI DISPONIBILI?444444444');
+                      res.status(200).json({ success: true });
+                    }
+                  });
+                } 
+                
+              };
             } else {
               // Nessun risultato trovato per i valori start_day e finish_day
               res.status(409).json({ error: 'Orario non disponibile' });
             }
           }
+          
         });
       }
     }
