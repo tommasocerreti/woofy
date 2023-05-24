@@ -307,7 +307,6 @@ app.post('/save-working-hours', (req, res) => {
 
 // Prenotazione
 app.post('/prenotazione', (req, res) => {
-  console.log('Gestore di route /prenotazione raggiunto');
   const user_id1 = req.body.user_id1;
   const user_id2 = req.cookies['userID'];
   const date = req.body.date;
@@ -316,8 +315,6 @@ app.post('/prenotazione', (req, res) => {
 
   const start_day = 'start_' + req.body.day;
   const finish_day = 'finish_' + req.body.day;
-
-  console.log(user_id1, user_id2, date, time, day);
 
   // Controllo esistenza prenotazione
   const query = `SELECT * FROM booking WHERE user_id1 = ? AND date = ? AND time = ?`;
@@ -328,12 +325,9 @@ app.post('/prenotazione', (req, res) => {
       res.status(500).json({ error: 'Errore del server' });
     } else {
       if (results.length > 0) {
-        console.log("Gia esiste");
-        res.status(409).json({ error: 'Prenotazione duplicata' });
+        console.log("La prenotazione gia esiste");
+        res.status(409).json({ error: "La prenotazione è stata duplicata"});
       } else {
-        console.log('ESISTE PRENOTAZIONE?');
-
-
         // Ricerca dei dati start_day e finish_day
         const workingHoursQuery = `SELECT ${start_day}, ${finish_day} FROM working_hours WHERE user_id = ?`;
         connection.query(workingHoursQuery, [user_id1], (error, workingHoursResults) => {
@@ -344,17 +338,10 @@ app.post('/prenotazione', (req, res) => {
             if (workingHoursResults.length > 0) {
               var startDayValue = workingHoursResults[0][start_day];
               var finishDayValue = workingHoursResults[0][finish_day];
-
-              console.log('QUALI SONO I VALORI start e finish?');
-              console.log(startDayValue, finishDayValue);
-              
-
-
-
               // Verifica se l'orario è compreso tra quelli disponibili
              {
               if (time >= startDayValue && time <= finishDayValue) {
-                console.log("FENOMENO");
+                  console.log("Prenotazione inserita con successo!");
                   const insertQuery = `INSERT INTO booking (user_id1, user_id2, date, time) VALUES (?, ?, ?, ?)`;
                   connection.query(insertQuery, [user_id1, user_id2, date, time], (error) => {
                     if (error) {
