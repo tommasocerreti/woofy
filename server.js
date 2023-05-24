@@ -374,7 +374,7 @@ app.post('/prenotazione', (req, res) => {
 
               // QUELL'ORARIO É COMPRESO TRA QUELLI DISPONIBILI?
              {
-              if (time >= startDayValue && time <= finishDayValue) {
+              if (startDayValue >= time && time <= finishDayValue) {
                   // Entrambi i controlli passati, procedi con l'inserimento
                   const insertQuery = `INSERT INTO booking (user_id1, user_id2, date, time) VALUES (?, ?, ?, ?)`;
                   console.log("Fenomeno");
@@ -383,13 +383,15 @@ app.post('/prenotazione', (req, res) => {
                       console.error('Errore durante l\'inserimento della prenotazione:', error);
                       res.status(500).json({ error: 'Errore del server' });
                     } else {
-                      console.log('QUELLORARIO É COMPRESO TRA QUELLI DISPONIBILI?444444444');
                       res.status(200).json({ success: true });
                     }
                   });
                 } 
-                
+                else{
+                  console.log("CIAO", startDayValue,finishDayValue,time);
               };
+              
+              }
             } else {
               // Nessun risultato trovato per i valori start_day e finish_day
               res.status(409).json({ error: 'Orario non disponibile' });
@@ -401,114 +403,6 @@ app.post('/prenotazione', (req, res) => {
     }
   });
 });
-
-
-/*
-app.post('/prenotazione', (req, res) => {
-
-  console.log('Gestore di route /prenotazione raggiunto');
-  const user_id1 = req.body.user_id1;
-  const user_id2 = req.cookies['userID'];
-  const date = req.body.date;
-  const time = req.body.time;
-  const day = req.body.day;
-
-  const start_day = 'start_' + req.body.day;
-  const finish_day = 'finish_' + req.body.day;
-  
-
-  console.log(user_id1, user_id2, date, time, day);
-
-
-  // CHIAMATA PER CONTROLLO ORARI
-  axios.post()
-
-
-  // Esegui la query per verificare se esiste già una prenotazione
-  const query = `SELECT * FROM booking WHERE user_id1 = ? AND user_id2 = ? AND date = ? AND time = ?`;
-
-  connection.query(query, [user_id1, user_id2, date, time], (error, results) => {
-    if (error) {
-      console.error('Errore durante l\'esecuzione della query:', error);
-      res.status(500).json({ error: 'Errore del server' });
-    } else {
-      if (results.length > 0) {
-        // Esiste già una prenotazione con i dati specificati
-        res.status(409).json({ error: 'Prenotazione duplicata' });
-      } else {
-        // Non esiste una prenotazione duplicata, procedi con l'inserimento
-        const insertQuery = `INSERT INTO booking (user_id1, user_id2, date, time) VALUES (?, ?, ?, ?)`;
-        connection.query(insertQuery, [user_id1, user_id2, date, time], (error) => {
-          if (error) {
-            console.error('Errore durante l\'inserimento della prenotazione:', error);
-            res.status(500).json({ error: 'Errore del server' });
-          } else {
-            res.status(200).json({ success: true });
-          }
-        });
-      }
-    }
-  });
-});
-
-
-
-
-
-
-
-
-
-
-
-app.post('/prenotazione', (req, res) => {
-  console.log('Gestore di route /prenotazione raggiunto');
-  const user_id1 = req.body.user_id1;
-  const user_id2 = req.cookies['userID'];
-  const date = req.body.date;
-  const time = req.body.time;
-  const day = req.body.day;
-
-  const start_day = 'start_' + req.body.day;
-  const finish_day = 'finish_' + req.body.day;
-
-  console.log(user_id1, user_id2, date, time, day);
-
-  // Esegui la query per verificare se esiste già una prenotazione e se il tempo è compreso tra start_day e finish_day
-  const query = `SELECT * FROM booking WHERE user_id1 = ? AND user_id2 = ? AND date = ? AND time = ? AND ${time} >= ${start_day} AND ${time} <= ${finish_day}`;
-
-  connection.query(query, [user_id1, user_id2, date, time], (error, results) => {
-    if (error) {
-      console.error('Errore durante l\'esecuzione della query:', error);
-      res.status(500).json({ error: 'Errore del server' });
-    } else {
-      if (results.length > 0) {
-        // Esiste già una prenotazione con i dati specificati
-        res.status(409).json({ error: 'Prenotazione duplicata' });
-      } else {
-        // esce dalla post
-        console.log("Orario disponibile");
-        });
-      }
-    }
-  });
-});
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
