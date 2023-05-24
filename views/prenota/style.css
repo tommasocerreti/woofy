@@ -73,7 +73,7 @@ body {
 
 
 /* BOX */
-.picture img { /* DA RIVEDERE (espresso in pixel?) <-------------------------- */
+.picture img {
   width: 150px;
   height: 150px;
 }

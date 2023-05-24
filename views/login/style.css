@@ -3,7 +3,7 @@ body{
 }
 @media (max-width: 768px) {
   body {
-    transform: scale(0.5); /* Modifica il valore di scala desiderato (1:x) */
+    transform: scale(0.5);
     transform-origin: top;
   }
 }

@@ -18,16 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Funzione per calcolare il tempo rimanente fino alla prossima ora
-function calculateTimeRemaining() {
-  const now = new Date();
-  const nextHour = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours() + 1, 0, 0);
-  const timeRemaining = nextHour - now;
-  
-  return timeRemaining;
-}
-
-// Funzione per aggiornare il countdown sulla pagina
+// Funzione per calcolare il tempo rimanente fino al prossimo appuntamento (esempio illustrativo del risultato finale)
 function updateCountdown() {
   const countdownElement = document.getElementById('countdown');
   const timeRemaining = calculateTimeRemaining();

@@ -10,7 +10,7 @@ const handlebars = require('handlebars');
 const cookierParser = require('cookie-parser');
 
 
-// CONFIGURAZIONE DEL MIDDLEWARE DI SESSIONE IN EXPRESS
+// Configurazione del Middleware di sessione di express
 app.use(session({
   secret: 'segreto',
   resave: false,
@@ -20,38 +20,31 @@ app.use(session({
 // Middleware per il controllo di autenticazione
 function requireLogin(req, res, next) {
   if (req.session.user) {
-    // L'utente è autenticato, procedi all'accesso alla pagina richiesta
     next();
   } else {
-    // L'utente non è autenticato, reindirizza a login
     res.redirect('/login');
   }
 }
 
 // Esempio di utilizzo del middleware per la protezione di una pagina
 app.get('/pagina-protetta', requireLogin, function(req, res) {
-  // La pagina protetta può essere accessibile solo se l'utente è autenticato
   res.render('pagina-protetta');
 });
 
-
-
-// GESTIONE FILE STATICI
+// Gestione dei file statici
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(path.join(__dirname, "views")));
 
-// CONFIGURAZIONE DI BODY PARSER
+// Configurazione di Body Parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
-// CONFIGURAZIONE DI ejs
+// Configurazione di ejs
 app.engine('ejs', require('ejs').__express);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-
-// SET COOKIES
+// Set Cookies
 app.use(cookierParser());
 app.use(async function (req, res, next) {
   if (req.cookies['userID'] === undefined) {
@@ -63,9 +56,7 @@ app.use(async function (req, res, next) {
   next();
 });
 
-
-
-// IMPOSTAZIONE UTENTE LOGGATO + FUNZIONE LOGOUT
+// Impostazione utente loggato + funzione logout
 app.get('/', function(req, res) {
   const loggedIn = req.session.user ? true : false;
   let profession = null;
@@ -101,8 +92,7 @@ app.get('/logout', function(req, res) {
   });
 });
 
-
-// ROUTE
+// Route
 app.get('/prenotazioni', function(req, res) {
   res.render(path.join(__dirname, 'views', 'prenotazioni', 'prenotazioni.ejs'));
 });
@@ -133,7 +123,7 @@ app.get('/bootstrap.min.js.map', function(req, res) {
 });
 
 
-// REGISTRAZIONE
+// Registrazione
 app.post('/registrazione', function(req, res) {
   const firstName = req.body.firstName;
   const secondName = req.body.secondName;
@@ -145,7 +135,7 @@ app.post('/registrazione', function(req, res) {
   const address = req.body.address;
   
   connection.query('SELECT * FROM user WHERE email = ?', [email], function(error, results) {
-    // VERIFICA DELLA PRESENZA DELL'EMAIL NEL DATABASE
+    // Verifica della presenza dell'email nel database
     if (error) {
       console.error('Errore durante la verifica dell\'email nel database:', error);
       return res.send('Si è verificato un errore durante la registrazione. Riprova più tardi.');
@@ -155,7 +145,7 @@ app.post('/registrazione', function(req, res) {
       return res.send('L\'indirizzo email è già stato registrato.');
     }
 
-    // INSERIMENTO DELL'UTENTE NEL DATABASE
+    // Inserimento dell'utente nel database
     const newUser = {
       firstName: firstName,
       secondName: secondName,
@@ -177,38 +167,33 @@ app.post('/registrazione', function(req, res) {
   });
 });
 
-// LOGIN
+// Login
 app.post('/login', function(req, res) {
   const email = req.body.email;
   const password = req.body.password;
 
-  // Esegui una query per verificare se esiste un utente con l'email fornita
   connection.query('SELECT * FROM user WHERE email = ?', [email], function(error, results) {
     if (error) {
       console.error('Errore durante la ricerca dell\'utente nel database:', error);
       return res.status(500).send('Si è verificato un errore durante la ricerca dell\'utente nel database.');
     }
 
-    // Verifica se l'utente esiste
     if (results.length === 0) {
       return res.status(401).send('Email o password non validi.');
     }
 
-    // L'utente esiste, verifica la password
     const user = results[0];
     if (password === user.password) {
-      // Password corretta, avvia la sessione o restituisci un messaggio di successo
       req.session.user = user;
       res.cookie('userID',user.id);
-      return res.redirect('/'); // Reindirizza all'area riservata o invia un messaggio di successo
+      return res.redirect('/'); 
     } else {
-      // Password non valida
       return res.status(401).send('Email o password non validi.');
     }
   });
 });
 
-// RICERCA DEL PROFESSIONISTA NELLA PAGINA PRENOTA
+// Ricerca del professionista nella pagina prenota
 app.post('/prenota', function(req, res) {
   const profession = req.body.profession;
   console.log('Valore profession:', profession);
@@ -234,22 +219,20 @@ app.post('/prenota', function(req, res) {
   });
 });
 
-// INSERIMENTO ORARI DISPONIBILI
+// Inserimento orari disponibili
 app.post('/save-working-hours', (req, res) => {
   const userId = req.cookies['userID'];
   const startFields = ['start_mon', 'start_tue', 'start_wed', 'start_thu', 'start_fri', 'start_sat', 'start_sun'];
   const finishFields = ['finish_mon', 'finish_tue', 'finish_wed', 'finish_thu', 'finish_fri', 'finish_sat', 'finish_sun'];
 
-  const selectedDays = req.body; // Array dei giorni selezionati
+  const selectedDays = req.body;
 
-  // Check if a row exists for the user
   connection.query('SELECT * FROM working_hours WHERE user_id = ?', [userId], (error, results) => {
     if (error) {
       console.error('Errore durante la ricerca delle ore lavorative:', error);
       res.status(500).json({ error: 'Si è verificato un errore durante la ricerca delle ore lavorative.' });
     } else {
       if (results.length > 0) {
-        // A row already exists for the user, perform an UPDATE
         let query = 'UPDATE working_hours SET ';
         let values = [];
 
@@ -268,11 +251,10 @@ app.post('/save-working-hours', (req, res) => {
           }
         }
 
-        query = query.slice(0, -2); // Remove the extra comma and space at the end
+        query = query.slice(0, -2);
         query += ' WHERE user_id = ?';
         values.push(userId);
 
-        // Execute the UPDATE query
         connection.query(query, values, (error, results) => {
           if (error) {
             console.error('Errore durante l\'aggiornamento delle ore lavorative:', error);
@@ -283,7 +265,6 @@ app.post('/save-working-hours', (req, res) => {
           }
         });
       } else {
-        // No row exists for the user, perform an INSERT INTO
         let query = 'INSERT INTO working_hours (user_id';
         let values = [userId];
 
@@ -308,7 +289,6 @@ app.post('/save-working-hours', (req, res) => {
         }
         query += ')';
 
-        // Execute the INSERT INTO query
         connection.query(query, values, (error, results) => {
           if (error) {
             console.error('Errore durante l\'inserimento delle ore lavorative:', error);
@@ -325,7 +305,7 @@ app.post('/save-working-hours', (req, res) => {
 
 
 
-// PRENOTAZIONE
+// Prenotazione
 app.post('/prenotazione', (req, res) => {
   console.log('Gestore di route /prenotazione raggiunto');
   const user_id1 = req.body.user_id1;
@@ -339,7 +319,7 @@ app.post('/prenotazione', (req, res) => {
 
   console.log(user_id1, user_id2, date, time, day);
 
-  // ESISTE PRENOTAZIONE?
+  // Controllo esistenza prenotazione
   const query = `SELECT * FROM booking WHERE user_id1 = ? AND date = ? AND time = ?`;
 
   connection.query(query, [user_id1, date, time], (error, results) => {
@@ -348,14 +328,13 @@ app.post('/prenotazione', (req, res) => {
       res.status(500).json({ error: 'Errore del server' });
     } else {
       if (results.length > 0) {
-        // Esiste già una prenotazione con i dati specificati
         console.log("Gia esiste");
         res.status(409).json({ error: 'Prenotazione duplicata' });
       } else {
         console.log('ESISTE PRENOTAZIONE?');
 
 
-        // QUALI SONO I VALORI start e finish?
+        // Ricerca dei dati start_day e finish_day
         const workingHoursQuery = `SELECT ${start_day}, ${finish_day} FROM working_hours WHERE user_id = ?`;
         connection.query(workingHoursQuery, [user_id1], (error, workingHoursResults) => {
           if (error) {
@@ -363,8 +342,8 @@ app.post('/prenotazione', (req, res) => {
             res.status(500).json({ error: 'Errore del server' });
           } else {
             if (workingHoursResults.length > 0) {
-              var startDayValue = workingHoursResults[0][start_day]; // Ottieni il valore di start_day
-              var finishDayValue = workingHoursResults[0][finish_day]; // Ottieni il valore di finish_day
+              var startDayValue = workingHoursResults[0][start_day];
+              var finishDayValue = workingHoursResults[0][finish_day];
 
               console.log('QUALI SONO I VALORI start e finish?');
               console.log(startDayValue, finishDayValue);
@@ -372,12 +351,11 @@ app.post('/prenotazione', (req, res) => {
 
 
 
-              // QUELL'ORARIO É COMPRESO TRA QUELLI DISPONIBILI?
+              // Verifica se l'orario è compreso tra quelli disponibili
              {
-              if (startDayValue >= time && time <= finishDayValue) {
-                  // Entrambi i controlli passati, procedi con l'inserimento
+              if (time >= startDayValue && time <= finishDayValue) {
+                console.log("FENOMENO");
                   const insertQuery = `INSERT INTO booking (user_id1, user_id2, date, time) VALUES (?, ?, ?, ?)`;
-                  console.log("Fenomeno");
                   connection.query(insertQuery, [user_id1, user_id2, date, time], (error) => {
                     if (error) {
                       console.error('Errore durante l\'inserimento della prenotazione:', error);
@@ -386,14 +364,9 @@ app.post('/prenotazione', (req, res) => {
                       res.status(200).json({ success: true });
                     }
                   });
-                } 
-                else{
-                  console.log("CIAO", startDayValue,finishDayValue,time);
-              };
-              
+                }
               }
             } else {
-              // Nessun risultato trovato per i valori start_day e finish_day
               res.status(409).json({ error: 'Orario non disponibile' });
             }
           }
@@ -439,11 +412,7 @@ app.post('/get-countdown', (req, res) => {
 */
 
 
-
-
-
-
-// AVVIAMENTO SERVER
+// Avviamento del server
 app.set('port', 3000);
 app.listen(3000, () => {
   console.log('Server listening on port ' + app.get('port'));

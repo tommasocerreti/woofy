@@ -1,7 +1,7 @@
 body{
   background-image: radial-gradient(circle, #1c3c82, #000436);
-  /* background-color: #fff;*/
 }
+
 /* NAVBAR */
 .nav-item {
   position: relative;
@@ -217,7 +217,17 @@ footer ul li a:hover {
 
 
 
-/* CALENDARIO */
+
+
+
+
+
+
+
+
+
+ 
+/* Calendario preso da (https://www.educative.io/answers/how-to-create-an-animated-calendar-with-html-and-css) */
 .calendar {
   height: max-content;
   width: max-content;

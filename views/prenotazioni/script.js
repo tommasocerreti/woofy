@@ -30,8 +30,6 @@ function saveWorkingHours() {
       workingHours.push(workingHour);
     });
   
-    // Effettua una richiesta al backend per salvare i dati selezionati
-    // Utilizza i valori di workingHours nella richiesta
     fetch('/save-working-hours', {
       method: 'POST',
       body: JSON.stringify(workingHours),
@@ -42,7 +40,6 @@ function saveWorkingHours() {
     .then(response => response.json())
     .then(data => {
       console.log('Dati salvati con successo:', data);
-      // Esegui altre azioni o aggiornamenti dell'interfaccia utente come necessario
     })
     .catch(error => {
       console.error('Si è verificato un errore durante il salvataggio dei dati:', error);
@@ -51,38 +48,7 @@ function saveWorkingHours() {
   
 
 
-// CALENDARIO
-$(document).ready(function() {
-// Inizializza il mese corrente
-var currentMonth = 5; // Giugno (0 = gennaio, 1 = febbraio, ecc.)
-
-// Funzione per aggiornare l'interfaccia del calendario con il mese corrente
-function updateCalendar() {
-    var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    var $calendar = $('#calendar');
-    $calendar.find('.cal-month-name').text(monthNames[currentMonth]);
-
-    // ... Altre modifiche all'interfaccia del calendario ...
-}
-
-// Gestisci il click sul pulsante per andare al mese precedente
-$('#calendar').on('click', '.cal-btn[data-direction="prev"]', function() {
-    currentMonth--;
-    updateCalendar();
-});
-
-// Gestisci il click sul pulsante per andare al mese successivo
-$('#calendar').on('click', '.cal-btn[data-direction="next"]', function() {
-    currentMonth++;
-    updateCalendar();
-});
-
-// Inizializza il calendario con il mese corrente
-updateCalendar();
-});
-
-
-// CALENDARIO
+// Calendario (preso da https://www.educative.io/answers/how-to-create-an-animated-calendar-with-html-and-css)
 let calendar = document.querySelector('.calendar')
 
 const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
