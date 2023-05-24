@@ -369,8 +369,7 @@ app.post('/prenotazione', (req, res) => {
               console.log(startDayValue, finishDayValue);
               
 
-              const timestamp = Math.floor(Date.parse(startDayValue) / 1000); // Trasforma l'orario in timestamp UNIX
-              
+
 
               // QUELL'ORARIO É COMPRESO TRA QUELLI DISPONIBILI?
               const timeQuery = `SELECT * FROM working_hours WHERE user_id = ? AND time = ? AND ${time} >= ${startDayValue} AND ${time} <= ${finishDayValue}`;
